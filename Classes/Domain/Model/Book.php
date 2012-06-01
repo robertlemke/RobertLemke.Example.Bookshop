@@ -53,6 +53,13 @@ class Book {
 	protected $reviews;
 
 	/**
+	 * @var \TYPO3\FLOW3\Resource\Resource
+	 * @ORM\ManyToOne
+	 * @ORM\Column(nullable=true)
+	 */
+	protected $image;
+
+	/**
 	 * Constructs this book
 	 */
 	public function __construct() {
@@ -131,9 +138,24 @@ class Book {
 	 * @param \RoeBooks\Shop\Domain\Model\Category $category The Book's category
 	 * @return void
 	 */
-	public function setCategory($category) {
+	public function setCategory(Category $category) {
 		$this->category = $category;
 	}
+
+	/**
+	 * @param \TYPO3\FLOW3\Resource\Resource $image
+	 */
+	public function setImage(\TYPO3\FLOW3\Resource\Resource $image) {
+		$this->image = $image;
+	}
+
+	/**
+	 * @return \TYPO3\FLOW3\Resource\Resource
+	 */
+	public function getImage() {
+		return $this->image;
+	}
+
 
 }
 ?>

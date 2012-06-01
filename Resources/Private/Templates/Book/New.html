@@ -5,7 +5,7 @@
 <f:section name="Content">
 	<p>Just fill out the following form to create a new book:</p>
 
-	<f:form action="create" name="newBook">
+	<f:form action="create" name="newBook" enctype="multipart/form-data">
 		<fieldset>
 			<div class="control-group">
 				<label class="control-label" for="title">Title</label>
@@ -21,6 +21,12 @@
 						<f:form.textfield property="price" id="price" class="input-small" />
 						<span class="add-on">.00</span>
 					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="image">Image</label>
+				<div class="controls">
+					<f:form.upload property="image" id="image" />
 				</div>
 			</div>
 			<div class="control-group">

@@ -4,7 +4,7 @@
 
 <f:section name="Content">
 	<f:render partial="FormErrors" arguments="{for: 'book'}" />
-	<f:form action="update" name="book" object="{book}">
+	<f:form action="update" name="book" object="{book}" enctype="multipart/form-data">
 		<fieldset>
 			<div class="control-group">
 				<label class="control-label" for="title">Title</label>
@@ -25,6 +25,16 @@
 					<span class="add-on">€</span>
 					<f:form.textfield property="price" id="price" class="input-small" />
 					<span class="add-on">.00</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="image">Image</label>
+				<div class="controls">
+					<f:if condition="{book.image}">
+						<f:then><img src="{f:uri.resource(resource: book.image)}" width="60" height="60" alt="" /></f:then>
+						<f:else><img src="http://placehold.it/60x60" width="60" height="60" alt="" /></f:else>
+					</f:if>
+					<f:form.upload property="image" id="image" />
 				</div>
 			</div>
 			<div class="control-group">

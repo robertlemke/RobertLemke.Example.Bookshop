@@ -1,0 +1,27 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Book Categories</f:section>
+
+<f:section name="Content">
+	<f:if condition="{categories}">
+		<f:then>
+			<table class="table table-bordered table-striped" style="width: 500px">
+				<f:for each="{categories}" as="category">
+					<tr>
+						<td>
+							<f:link.action action="show" arguments="{category: category}">{category.name}</f:link.action>
+						</td>
+						<td style="width: 40px">
+							<f:link.action action="edit" arguments="{category: category}"><i class="icon-edit"></i></f:link.action>
+							<f:link.action action="delete" arguments="{category: category}"><i class="icon-trash"></i></f:link.action>
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p>No categories created yet.</p>
+		</f:else>
+	</f:if>
+	<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new category</f:link.action></p>
+</f:section>

@@ -4,12 +4,15 @@
 
 <f:section name="Content">
 	<p/>
-	<table class="table">
+	<table class="table table-bordered table-striped" style="width: 500px">
 		<tr>
 			<th>Title</th>
 			<td>{book.title}</td>
 		</tr>
-
+		<tr>
+			<th>Category</th>
+			<td>{book.category.name}</td>
+		</tr>
 		<tr>
 			<th>Price</th>
 			<td>{book.price}</td>

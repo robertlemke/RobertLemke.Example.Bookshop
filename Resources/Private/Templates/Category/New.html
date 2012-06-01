@@ -1,0 +1,19 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New category</f:section>
+
+<f:section name="Content">
+	<p/>
+
+	<f:form action="create" name="newCategory">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="name">Name</label>
+				<div class="controls">
+					<f:form.textfield property="name" id="name" class="input-xlarge" />
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+			<f:link.action action="index" class="btn">Cancel</f:link.action>
+		</fieldset>
+	</f:form></f:section>

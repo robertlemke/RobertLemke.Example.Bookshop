@@ -12,7 +12,7 @@ use TYPO3\FLOW3\Mvc\Controller\ActionController;
 use \RoeBooks\Shop\Domain\Model\Book;
 
 /**
- * Book controller for the RoeBooks.Shop package 
+ * Book controller for the RoeBooks.Shop package
  *
  * @FLOW3\Scope("singleton")
  */
@@ -23,6 +23,22 @@ class BookController extends ActionController {
 	 * @var \RoeBooks\Shop\Domain\Repository\BookRepository
 	 */
 	protected $bookRepository;
+
+	/**
+	 * @FLOW3\Inject
+	 * @var \RoeBooks\Shop\Domain\Repository\CategoryRepository
+	 */
+	protected $categoryRepository;
+
+	/**
+	 * A hacky way to implement a menu
+	 *
+	 * @return void
+	 */
+	public function initializeView(\TYPO3\FLOW3\Mvc\View\ViewInterface $view) {
+		$view->assign('controller', array('book' => TRUE));
+		$view->assign('categories', $this->categoryRepository->findAll());
+	}
 
 	/**
 	 * Shows a list of books

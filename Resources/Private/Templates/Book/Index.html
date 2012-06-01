@@ -12,6 +12,12 @@
 						<td>
 							<f:link.action action="show" arguments="{book: book}">{book.title}</f:link.action>
 						</td>
+						<td>
+							{book.category.name}
+						</td>
+						<td style="text-align: right">
+							<f:format.number>{book.price}</f:format.number> €
+						</td>
 						<td style="width: 40px">
 							<f:link.action action="edit" arguments="{book: book}"><i class="icon-edit"></i></f:link.action>
 							<f:link.action action="delete" arguments="{book: book}"><i class="icon-trash"></i></f:link.action>

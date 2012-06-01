@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {namespace bootstrap=Twitter\Bootstrap\ViewHelpers}
-<html>
+<html xmlns:f="http://www.w3.org/1999/html">
 <head>
 	<meta charset="utf-8">
 	<title>
@@ -33,6 +33,11 @@
 								<li><f:link.action action="index" controller="Book">Books</f:link.action></li>
 								<li class="active"><f:link.action action="index" controller="Category">Categories</f:link.action></li>
 							</f:else>
+						</f:if>
+						<f:if condition="{basket}">
+							<li><f:link.action action="index" controller="Basket"><i class="icon-shopping-cart"></i> Basket
+								<f:if condition="{basket.books}"><span class="badge badge-success">{basket.books -> f:count()}</span></f:if>
+							</f:link.action></li>
 						</f:if>
 					</ul>
 					<form class="navbar-search pull-right" action="">

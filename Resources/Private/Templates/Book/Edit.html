@@ -1,0 +1,30 @@
+<f:layout name="Default" />
+
+<f:section name="Title">{book.title}</f:section>
+
+<f:section name="Content">
+	<f:form action="update" name="book" object="{book}">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="title">Title</label>
+				<div class="controls">
+					<f:form.textfield property="title" id="title" class="input-xlarge" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="price">Price</label>
+				<div class="controls">
+					<f:form.textfield property="price" id="price" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="description">Description</label>
+				<div class="controls">
+					<f:form.textarea property="description" id="description" class="input-xlarge" cols="" rows="3" />
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Update</button>
+			<f:link.action action="index" class="btn">Cancel</f:link.action>
+		</fieldset>
+	</f:form>
+</f:section>

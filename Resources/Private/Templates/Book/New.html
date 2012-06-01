@@ -1,0 +1,36 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New book</f:section>
+
+<f:section name="Content">
+	<p>Just fill out the following form to create a new book:</p>
+
+	<f:form action="create" name="newBook">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="title">Title</label>
+				<div class="controls">
+					<f:form.textfield property="title" id="title" class="input-xlarge" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="price">Price</label>
+				<div class="controls">
+					<div class="input-prepend input-append">
+						<span class="add-on">€</span>
+						<f:form.textfield property="price" id="price" class="input-small" />
+						<span class="add-on">.00</span>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="description">Description</label>
+				<div class="controls">
+					<f:form.textarea property="description" id="description" class="input-xlarge" cols="" rows="3" />
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+			<f:link.action action="index" class="btn">Cancel</f:link.action>
+		</fieldset>
+	</f:form>
+</f:section>

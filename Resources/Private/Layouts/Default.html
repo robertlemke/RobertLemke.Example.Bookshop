@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{namespace bootstrap=Twitter\Bootstrap\ViewHelpers}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><f:render section="Title" /></title>
+		<f:base />
+		<bootstrap:include />
+	</head>
+	<body>
+		<div class="container">
+			<p></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="brand">roebooks.com</a>
+					</div>
+				</div>
+			</div>
+			<f:flashMessages as="flashMessages">
+				<ul class="unstyled">
+					<f:for each="{flashMessages}" as="flashMessage">
+						<li><i class="icon-info-sign"></i> {flashMessage}</li>
+					</f:for>
+				</ul>
+			</f:flashMessages>
+			<h2><f:render section="Title" /></h2>
+			<f:render section="Content" />
+		</div>
+	</body>
+</html>

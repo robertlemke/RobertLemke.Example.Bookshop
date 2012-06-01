@@ -1,0 +1,24 @@
+<f:layout name="Default" />
+
+<f:section name="Title">{book.title}</f:section>
+
+<f:section name="Content">
+	<p/>
+	<table class="table">
+		<tr>
+			<th>Title</th>
+			<td>{book.title}</td>
+		</tr>
+
+		<tr>
+			<th>Price</th>
+			<td>{book.price}</td>
+		</tr>
+
+		<tr>
+			<th>Description</th>
+			<td>{book.description}</td>
+		</tr>
+	</table>
+	<p><f:link.action action="index">Back</f:link.action></p>
+</f:section>

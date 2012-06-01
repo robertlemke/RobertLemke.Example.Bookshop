@@ -19,7 +19,7 @@
 									<h5><f:link.action action="show" arguments="{book: book}">{book.title}</f:link.action></h5>
 									<p>{book.category.name}</p>
 									<p>{book.description}</p>
-									<p><strong><f:format.number>{book.price}</f:format.number> €</strong> <f:link.action class="btn pull-right"><i class="icon-shopping-cart"></i> Add to Basket</f:link.action></p>
+									<p><strong><f:format.number>{book.price}</f:format.number> €</strong> <f:link.action action="add" controller="Basket" arguments="{book: book}" class="btn pull-right"><i class="icon-shopping-cart"></i> Add to Basket</f:link.action></p>
 									<f:link.action action="edit" arguments="{book: book}"><i class="icon-edit"></i></f:link.action>
 									<f:link.action action="delete" arguments="{book: book}"><i class="icon-trash"></i></f:link.action>
 								</div>

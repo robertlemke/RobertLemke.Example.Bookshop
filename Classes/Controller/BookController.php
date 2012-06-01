@@ -31,6 +31,12 @@ class BookController extends ActionController {
 	protected $categoryRepository;
 
 	/**
+	 * @FLOW3\Inject
+	 * @var \RoeBooks\Shop\Domain\Model\Basket
+	 */
+	protected $basket;
+
+	/**
 	 * A hacky way to implement a menu
 	 *
 	 * @return void
@@ -38,6 +44,7 @@ class BookController extends ActionController {
 	public function initializeView(\TYPO3\FLOW3\Mvc\View\ViewInterface $view) {
 		$view->assign('controller', array('book' => TRUE));
 		$view->assign('categories', $this->categoryRepository->findAll());
+		$view->assign('basket', $this->basket);
 	}
 
 	/**

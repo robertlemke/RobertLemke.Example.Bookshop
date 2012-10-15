@@ -1,0 +1,14 @@
+{
+    "name": "roebooks/shop",
+    "type": "typo3-flow-package",
+    "description": "An example application for the Getting Into FLOW3 tutorial.",
+    "version": "1.0.0",
+    "require": {
+        "typo3/flow": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "RoeBooks\\Shop": "Classes"
+        }
+    }
+}

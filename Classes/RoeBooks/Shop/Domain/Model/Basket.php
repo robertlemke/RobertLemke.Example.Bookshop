@@ -6,13 +6,13 @@ namespace RoeBooks\Shop\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Basket
  *
- * @FLOW3\Scope("session")
+ * @Flow\Scope("session")
  */
 class Basket {
 
@@ -44,7 +44,7 @@ class Basket {
 	 *
 	 * @param \RoeBooks\Shop\Domain\Model\Book $book The book to add
 	 * @return void
-	 * @FLOW3\Session(autoStart=true)
+	 * @Flow\Session(autoStart=true)
 	 */
 	public function addBook(Book $book) {
 		$this->books->add($book);

@@ -9,7 +9,7 @@ namespace RoeBooks\Shop\Tests\Unit\Domain\Model;
 /**
  * Testcase for Review
  */
-class ReviewTest extends \TYPO3\FLOW3\Tests\UnitTestCase {
+class ReviewTest extends \TYPO3\Flow\Tests\UnitTestCase {
 
 	/**
 	 * @test

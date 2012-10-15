@@ -6,27 +6,27 @@ namespace RoeBooks\Shop\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Book
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Book {
 
 	/**
 	 * The title
 	 * @var string
-	 * @FLOW3\Validate(type="StringLength", options={ "minimum"=1, "maximum"=100 })
+	 * @Flow\Validate(type="StringLength", options={ "minimum"=1, "maximum"=100 })
 	 */
 	protected $title;
 
 	/**
 	 * The price
 	 * @var integer
-	 * @FLOW3\Validate(type="NumberRange", options={ "minimum"=1, "maximum"=1000 })
+	 * @Flow\Validate(type="NumberRange", options={ "minimum"=1, "maximum"=1000 })
 	 */
 	protected $price;
 
@@ -53,7 +53,7 @@ class Book {
 	protected $reviews;
 
 	/**
-	 * @var \TYPO3\FLOW3\Resource\Resource
+	 * @var \TYPO3\Flow\Resource\Resource
 	 * @ORM\ManyToOne
 	 * @ORM\Column(nullable=true)
 	 */
@@ -143,14 +143,14 @@ class Book {
 	}
 
 	/**
-	 * @param \TYPO3\FLOW3\Resource\Resource $image
+	 * @param \TYPO3\Flow\Resource\Resource $image
 	 */
-	public function setImage(\TYPO3\FLOW3\Resource\Resource $image) {
+	public function setImage(\TYPO3\Flow\Resource\Resource $image) {
 		$this->image = $image;
 	}
 
 	/**
-	 * @return \TYPO3\FLOW3\Resource\Resource
+	 * @return \TYPO3\Flow\Resource\Resource
 	 */
 	public function getImage() {
 		return $this->image;

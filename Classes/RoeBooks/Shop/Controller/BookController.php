@@ -6,32 +6,32 @@ namespace RoeBooks\Shop\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
-use TYPO3\FLOW3\Mvc\Controller\ActionController;
+use TYPO3\Flow\Mvc\Controller\ActionController;
 use \RoeBooks\Shop\Domain\Model\Book;
 
 /**
  * Book controller for the RoeBooks.Shop package
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class BookController extends ActionController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \RoeBooks\Shop\Domain\Repository\BookRepository
 	 */
 	protected $bookRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \RoeBooks\Shop\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \RoeBooks\Shop\Domain\Model\Basket
 	 */
 	protected $basket;
@@ -41,7 +41,7 @@ class BookController extends ActionController {
 	 *
 	 * @return void
 	 */
-	public function initializeView(\TYPO3\FLOW3\Mvc\View\ViewInterface $view) {
+	public function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
 		$view->assign('controller', array('book' => TRUE));
 		$view->assign('categories', $this->categoryRepository->findAll());
 		$view->assign('basket', $this->basket);

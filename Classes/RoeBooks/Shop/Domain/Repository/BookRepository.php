@@ -6,14 +6,14 @@ namespace RoeBooks\Shop\Domain\Repository;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A repository for Books
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
-class BookRepository extends \TYPO3\FLOW3\Persistence\Repository {
+class BookRepository extends \TYPO3\Flow\Persistence\Repository {
 
 	// add customized methods here
 

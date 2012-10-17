@@ -1,15 +1,15 @@
 <?php
-namespace RoeBooks\Shop\Controller;
+namespace RobertLemke\Example\Bookshop\Controller;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 
 use TYPO3\Flow\Annotations as Flow;
 
 /**
- * Basket controller for the RoeBooks.Shop package
+ * Basket controller for the RobertLemke.Example.Bookshop package
  *
  * @Flow\Scope("singleton")
  */
@@ -17,7 +17,7 @@ class BasketController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \RoeBooks\Shop\Domain\Model\Basket
+	 * @var \RobertLemke\Example\Bookshop\Domain\Model\Basket
 	 */
 	protected $basket;
 
@@ -31,10 +31,10 @@ class BasketController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	/**
 	 * Adds a book to the shopping basket
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book
 	 * @return void
 	 */
-	public function addAction(\RoeBooks\Shop\Domain\Model\Book $book) {
+	public function addAction(\RobertLemke\Example\Bookshop\Domain\Model\Book $book) {
 		$this->basket->addBook($book);
 		$this->addFlashMessage('Added "' . $book->getTitle() . '" to your shopping basket.');
 		$this->redirect('index', 'Book');
@@ -43,10 +43,10 @@ class BasketController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	/**
 	 * Removes a book from the shopping basket
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book
 	 * @return void
 	 */
-	public function removeAction(\RoeBooks\Shop\Domain\Model\Book $book) {
+	public function removeAction(\RobertLemke\Example\Bookshop\Domain\Model\Book $book) {
 		$this->basket->removeBook($book);
 		$this->addFlashMessage('Removed "' . $book->getTitle() . '" from your shopping basket.');
 		$this->redirect('index');

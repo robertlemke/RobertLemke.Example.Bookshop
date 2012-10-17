@@ -1,8 +1,8 @@
 <?php
-namespace RoeBooks\Shop\Domain\Model;
+namespace RobertLemke\Example\Bookshop\Domain\Model;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 
@@ -39,7 +39,7 @@ class Book {
 
 	/**
 	 * The category
-	 * @var \RoeBooks\Shop\Domain\Model\Category
+	 * @var \RobertLemke\Example\Bookshop\Domain\Model\Category
 	 * @ORM\ManyToOne
 	 * @ORM\Column(nullable=true)
 	 */
@@ -47,7 +47,7 @@ class Book {
 
 	/**
 	 * Reviews of this book
-	 * @var \Doctrine\Common\Collections\Collection<\RoeBooks\Shop\Domain\Model\Review>
+	 * @var \Doctrine\Common\Collections\Collection<\RobertLemke\Example\Bookshop\Domain\Model\Review>
 	 * @ORM\OneToMany(mappedBy="book")
 	 */
 	protected $reviews;
@@ -126,7 +126,7 @@ class Book {
 	/**
 	 * Get the Book's category
 	 *
-	 * @return \RoeBooks\Shop\Domain\Model\Category The Book's category
+	 * @return \RobertLemke\Example\Bookshop\Domain\Model\Category The Book's category
 	 */
 	public function getCategory() {
 		return $this->category;
@@ -135,7 +135,7 @@ class Book {
 	/**
 	 * Sets this Book's category
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Category $category The Book's category
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Category $category The Book's category
 	 * @return void
 	 */
 	public function setCategory(Category $category) {

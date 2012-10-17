@@ -1,15 +1,15 @@
 <?php
-namespace RoeBooks\Shop\Controller;
+namespace RobertLemke\Example\Bookshop\Controller;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 
 use TYPO3\Flow\Annotations as Flow;
 
 /**
- * Hello controller for the RoeBooks.Shop package
+ * Hello controller for the RobertLemke.Example.Bookshop package
  *
  * @Flow\Scope("singleton")
  */

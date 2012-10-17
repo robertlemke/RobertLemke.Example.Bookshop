@@ -1,18 +1,18 @@
 <?php
-namespace RoeBooks\Shop\Controller;
+namespace RobertLemke\Example\Bookshop\Controller;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 
 use TYPO3\Flow\Annotations as Flow;
 
 use TYPO3\Flow\Mvc\Controller\ActionController;
-use \RoeBooks\Shop\Domain\Model\Book;
+use \RobertLemke\Example\Bookshop\Domain\Model\Book;
 
 /**
- * Book controller for the RoeBooks.Shop package
+ * Book controller for the RobertLemke.Example.Bookshop package
  *
  * @Flow\Scope("singleton")
  */
@@ -20,19 +20,19 @@ class BookController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \RoeBooks\Shop\Domain\Repository\BookRepository
+	 * @var \RobertLemke\Example\Bookshop\Domain\Repository\BookRepository
 	 */
 	protected $bookRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \RoeBooks\Shop\Domain\Repository\CategoryRepository
+	 * @var \RobertLemke\Example\Bookshop\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \RoeBooks\Shop\Domain\Model\Basket
+	 * @var \RobertLemke\Example\Bookshop\Domain\Model\Basket
 	 */
 	protected $basket;
 
@@ -59,7 +59,7 @@ class BookController extends ActionController {
 	/**
 	 * Shows a single book object
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book The book to show
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book The book to show
 	 * @return void
 	 */
 	public function showAction(Book $book) {
@@ -77,7 +77,7 @@ class BookController extends ActionController {
 	/**
 	 * Adds the given new book object to the book repository
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $newBook A new book to add
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $newBook A new book to add
 	 * @return void
 	 */
 	public function createAction(Book $newBook) {
@@ -89,7 +89,7 @@ class BookController extends ActionController {
 	/**
 	 * Shows a form for editing an existing book object
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book The book to edit
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book The book to edit
 	 * @return void
 	 */
 	public function editAction(Book $book) {
@@ -99,7 +99,7 @@ class BookController extends ActionController {
 	/**
 	 * Updates the given book object
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book The book to update
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book The book to update
 	 * @return void
 	 */
 	public function updateAction(Book $book) {
@@ -111,7 +111,7 @@ class BookController extends ActionController {
 	/**
 	 * Removes the given book object from the book repository
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book The book to delete
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book The book to delete
 	 * @return void
 	 */
 	public function deleteAction(Book $book) {

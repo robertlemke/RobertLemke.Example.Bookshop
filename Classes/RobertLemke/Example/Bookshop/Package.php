@@ -1,11 +1,11 @@
 <?php
-namespace RoeBooks\Shop;
+namespace RobertLemke\Example\Bookshop;
 
 use TYPO3\Flow\Package\Package as BasePackage;
 use TYPO3\Flow\Annotations as Flow;
 
 /**
- * Package base class of the RoeBooks.Shop package.
+ * Package base class of the RobertLemke.Example.Bookshop package.
  *
  * @Flow\Scope("singleton")
  */

@@ -1,8 +1,8 @@
 <?php
-namespace RoeBooks\Shop\Domain\Model;
+namespace RobertLemke\Example\Bookshop\Domain\Model;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 
@@ -18,7 +18,7 @@ class Review {
 
 	/**
 	 * The book
-	 * @var \RoeBooks\Shop\Domain\Model\Book
+	 * @var \RobertLemke\Example\Bookshop\Domain\Model\Book
 	 * @ORM\ManyToOne(inversedBy="reviews")
 	 */
 	protected $book;
@@ -52,7 +52,7 @@ class Review {
 	/**
 	 * Get the Review's book
 	 *
-	 * @return \RoeBooks\Shop\Domain\Model\Book The Review's book
+	 * @return \RobertLemke\Example\Bookshop\Domain\Model\Book The Review's book
 	 */
 	public function getBook() {
 		return $this->book;
@@ -61,7 +61,7 @@ class Review {
 	/**
 	 * Sets this Review's book
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book The Review's book
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book The Review's book
 	 * @return void
 	 */
 	public function setBook($book) {

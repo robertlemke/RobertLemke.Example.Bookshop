@@ -1,18 +1,18 @@
 <?php
-namespace RoeBooks\Shop\Controller;
+namespace RobertLemke\Example\Bookshop\Controller;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 
 use TYPO3\Flow\Annotations as Flow;
 
 use TYPO3\Flow\Mvc\Controller\ActionController;
-use \RoeBooks\Shop\Domain\Model\Category;
+use \RobertLemke\Example\Bookshop\Domain\Model\Category;
 
 /**
- * Category controller for the RoeBooks.Shop package 
+ * Category controller for the RobertLemke.Example.Bookshop package
  *
  * @Flow\Scope("singleton")
  */
@@ -20,7 +20,7 @@ class CategoryController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \RoeBooks\Shop\Domain\Repository\CategoryRepository
+	 * @var \RobertLemke\Example\Bookshop\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
@@ -36,7 +36,7 @@ class CategoryController extends ActionController {
 	/**
 	 * Shows a single category object
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Category $category The category to show
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Category $category The category to show
 	 * @return void
 	 */
 	public function showAction(Category $category) {
@@ -54,7 +54,7 @@ class CategoryController extends ActionController {
 	/**
 	 * Adds the given new category object to the category repository
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Category $newCategory A new category to add
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Category $newCategory A new category to add
 	 * @return void
 	 */
 	public function createAction(Category $newCategory) {
@@ -66,7 +66,7 @@ class CategoryController extends ActionController {
 	/**
 	 * Shows a form for editing an existing category object
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Category $category The category to edit
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Category $category The category to edit
 	 * @return void
 	 */
 	public function editAction(Category $category) {
@@ -76,7 +76,7 @@ class CategoryController extends ActionController {
 	/**
 	 * Updates the given category object
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Category $category The category to update
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Category $category The category to update
 	 * @return void
 	 */
 	public function updateAction(Category $category) {
@@ -88,7 +88,7 @@ class CategoryController extends ActionController {
 	/**
 	 * Removes the given category object from the category repository
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Category $category The category to delete
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Category $category The category to delete
 	 * @return void
 	 */
 	public function deleteAction(Category $category) {

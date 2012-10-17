@@ -1,8 +1,8 @@
 <?php
-namespace RoeBooks\Shop\Domain\Repository;
+namespace RobertLemke\Example\Bookshop\Domain\Repository;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 

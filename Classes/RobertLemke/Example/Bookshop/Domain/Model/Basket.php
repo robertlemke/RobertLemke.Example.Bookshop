@@ -1,8 +1,8 @@
 <?php
-namespace RoeBooks\Shop\Domain\Model;
+namespace RobertLemke\Example\Bookshop\Domain\Model;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "RoeBooks.Shop".              *
+ * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        *
  *                                                                        */
 
@@ -18,7 +18,7 @@ class Basket {
 
 	/**
 	 * The books
-	 * @var \Doctrine\Common\Collections\Collection<\RoeBooks\Shop\Domain\Model\Book>
+	 * @var \Doctrine\Common\Collections\Collection<\RobertLemke\Example\Bookshop\Domain\Model\Book>
 	 * @ORM\ManyToMany
 	 */
 	protected $books;
@@ -33,7 +33,7 @@ class Basket {
 	/**
 	 * Get the Basket's books
 	 *
-	 * @return \Doctrine\Common\Collections\Collection<\RoeBooks\Shop\Domain\Model\Book> The Basket's books
+	 * @return \Doctrine\Common\Collections\Collection<\RobertLemke\Example\Bookshop\Domain\Model\Book> The Basket's books
 	 */
 	public function getBooks() {
 		return $this->books;
@@ -42,7 +42,7 @@ class Basket {
 	/**
 	 * Adds a book to the basket
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book The book to add
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book The book to add
 	 * @return void
 	 * @Flow\Session(autoStart=true)
 	 */
@@ -53,7 +53,7 @@ class Basket {
 	/**
 	 * Adds a book to the basket
 	 *
-	 * @param \RoeBooks\Shop\Domain\Model\Book $book The book to add
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Book $book The book to add
 	 * @return void
 	 */
 	public function removeBook(Book $book) {

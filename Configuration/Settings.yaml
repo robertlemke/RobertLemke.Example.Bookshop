@@ -1,0 +1,14 @@
+TYPO3:
+  Flow:
+    security:
+      authentication:
+        providers:
+          DefaultProvider:
+            provider: 'PersistedUsernamePasswordProvider'
+            entryPoint: 'WebRedirect'
+            entryPointOptions:
+              routeValues:
+                '@package': 'RobertLemke.Example.Bookshop'
+                '@controller': 'Login'
+                '@action': 'login'
+                '@format': 'html'

@@ -60,5 +60,15 @@ class Basket {
 		$this->books->removeElement($book);
 	}
 
+	/**
+	 *
+	 */
+	public function getTotal() {
+		$total = 0;
+		foreach ($this->books as $book) {
+			$total += $book->getPrice();
+		}
+		return $total;
+	}
 }
 ?>

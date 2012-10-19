@@ -34,4 +34,10 @@
 		</f:else>
 	</f:if>
 	<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action></p>
+	<p>
+		<f:form action="createIsbn" name="newBook">
+			<f:form.textfield property="isbn" id="isbn" />
+			<button type="submit" class="btn btn-primary">Create</button>
+		</f:form>
+	</p>
 </f:section>

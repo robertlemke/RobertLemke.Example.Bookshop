@@ -17,6 +17,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Book {
 
 	/**
+	 * @Flow\Inject
+	 * @var \RobertLemke\Example\Bookshop\Service\IsbnLookupService
+	 */
+	protected $isbnLookupService;
+
+	/**
 	 * The title
 	 * @var string
 	 * @Flow\Validate(type="StringLength", options={ "minimum"=1, "maximum"=100 })
@@ -58,6 +64,11 @@ class Book {
 	 * @ORM\Column(nullable=true)
 	 */
 	protected $image;
+
+	/**
+	 * @var string
+	 */
+	protected $isbn;
 
 	/**
 	 * Constructs this book
@@ -156,6 +167,35 @@ class Book {
 		return $this->image;
 	}
 
+	/**
+	 * @param integer $isbn
+	 */
+	public function setIsbn($isbn) {
+		$this->isbn = $isbn;
+	}
+
+	/**
+	 * @return integer
+	 */
+	public function getIsbn() {
+		return $this->isbn;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPublisher() {
+		$bookInfo = $this->isbnLookupService->getBookInfo($this->isbn);
+		return isset($bookInfo['publisher']) ? $bookInfo['publisher'] : 'unknown';
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAuthors() {
+		$bookInfo = $this->isbnLookupService->getBookInfo($this->isbn);
+		return isset($bookInfo['authors']) ? $bookInfo['authors'] : 'unknown';
+	}
 
 }
 ?>

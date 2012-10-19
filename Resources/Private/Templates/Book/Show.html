@@ -10,6 +10,10 @@
 			<td>{book.title}</td>
 		</tr>
 		<tr>
+			<th>ISBN</th>
+			<td>{book.isbn}</td>
+		</tr>
+		<tr>
 			<th>Category</th>
 			<td>{book.category.name}</td>
 		</tr>
@@ -17,11 +21,19 @@
 			<th>Price</th>
 			<td>{book.price}</td>
 		</tr>
-
+		<tr>
+			<th>Publisher</th>
+			<td>{book.publisher}</td>
+		</tr>
+		<tr>
+			<th>Authors</th>
+			<td>{book.authors}</td>
+		</tr>
 		<tr>
 			<th>Description</th>
 			<td>{book.description}</td>
 		</tr>
+
 	</table>
 	<p><f:link.action action="index">Back</f:link.action></p>
 </f:section>

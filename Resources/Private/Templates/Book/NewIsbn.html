@@ -1,0 +1,20 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New book</f:section>
+
+<f:section name="Content">
+	<p>Just fill out the following form to create a new book:</p>
+
+	<f:form action="createIsbn" name="isbn" enctype="multipart/form-data">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="isbn">ISBN</label>
+				<div class="controls">
+					<f:form.textfield property="isbn" id="isbn" />
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+			<f:link.action action="index" class="btn">Cancel</f:link.action>
+		</fieldset>
+	</f:form>
+</f:section>

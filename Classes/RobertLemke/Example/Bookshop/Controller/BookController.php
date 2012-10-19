@@ -37,6 +37,12 @@ class BookController extends ActionController {
 	protected $basket;
 
 	/**
+	 * @Flow\Inject
+	 * @var \RobertLemke\Example\Bookshop\Service\IsbnLookupService
+	 */
+	protected $isbnLookupService;
+
+	/**
 	 * A hacky way to implement a menu
 	 *
 	 * @return void
@@ -83,6 +89,28 @@ class BookController extends ActionController {
 	public function createAction(Book $newBook) {
 		$this->bookRepository->add($newBook);
 		$this->addFlashMessage('Created a new book.');
+		$this->redirect('index');
+	}
+
+	/**
+	 * Adds the book specified by an ISBN
+	 *
+	 * @param array $newBook An array containing an isbn property
+	 * @return void
+	 */
+	public function createIsbnAction(array $newBook) {
+		$bookInfo = $this->isbnLookupService->getBookInfo($newBook['isbn']);
+		if ($bookInfo === array()) {
+			$this->addFlashMessage(sprintf('No book found with ISBN %s.', $newBook['isbn']));
+		} else {
+			$book = new Book();
+			$book->setTitle($bookInfo['title']);
+			$book->setDescription('Automatically imported');
+			$book->setIsbn($newBook['isbn']);
+			$book->setPrice(12);
+			$this->bookRepository->add($book);
+			$this->addFlashMessage('Created a new book.');
+		}
 		$this->redirect('index');
 	}
 

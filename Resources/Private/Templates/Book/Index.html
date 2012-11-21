@@ -34,10 +34,19 @@
 		</f:else>
 	</f:if>
 	<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action></p>
+	<hr />
+	<h4>Create new book through ISBN</h4>
 	<p>
 		<f:form action="createIsbn" name="newBook">
-			<f:form.textfield property="isbn" id="isbn" />
-			<button type="submit" class="btn btn-primary">Create</button>
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label" for="isbn">ISBN</label>
+					<div class="controls">
+						<f:form.textfield property="isbn" id="isbn" />
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Create Book</button>
+			</fieldset>
 		</f:form>
 	</p>
 </f:section>

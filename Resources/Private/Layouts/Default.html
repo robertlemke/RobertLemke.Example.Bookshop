@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{namespace bootstrap=Twitter\Bootstrap\ViewHelpers}
+{namespace bootstrap=TYPO3\Twitter\Bootstrap\ViewHelpers}
 <html xmlns:f="http://www.w3.org/1999/html">
 <head>
 	<meta charset="utf-8">
@@ -46,10 +46,10 @@
 					<div class="pull-right">
 						<f:security.ifAuthenticated>
 							<f:then>
-								<f:link.action action="logout" controller="Login">Logout</f:link.action>
+								<f:link.action action="logout" controller="Login" class="btn" style="margin-right: 12px">Logout</f:link.action>
 							</f:then>
 							<f:else>
-								<f:link.action action="login" controller="Login">Login</f:link.action>
+								<f:link.action action="login" controller="Login" class="btn" style="margin-right: 12px">Login</f:link.action>
 							</f:else>
 						</f:security.ifAuthenticated>
 					</div>

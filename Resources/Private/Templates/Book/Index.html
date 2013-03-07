@@ -6,6 +6,17 @@
 	<f:if condition="{books}">
 		<f:then>
 			<p>We have this fine selection of a handful of books. Buy them while you still can.</p>
+			<f:if condition="{categories}">
+			<p>
+				Filter by category:
+				<ul>
+					<li><f:link.action action="index">All</f:link.action></li>
+					<f:for each="{categories}" as="category">
+						<li><f:link.action action="index" arguments="{category: category}">{category.name}</f:link.action></li>
+					</f:for>
+				</ul>
+			<p>
+			</f:if>
 			<div class="span12">
 				<ul class="thumbnails">
 					<f:for each="{books}" as="book">
@@ -33,7 +44,9 @@
 			<p>No books created yet.</p>
 		</f:else>
 	</f:if>
-	<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action></p>
+	<f:security.ifAccess resource="BookManagementMethods">
+		<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action></p>
+	</f:security.ifAccess>
 	<hr />
 	<h4>Create new book through ISBN</h4>
 	<p>

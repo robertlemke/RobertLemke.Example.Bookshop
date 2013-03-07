@@ -1,0 +1,23 @@
+-
+  name: 'Books filtered by category'
+  uriPattern: 'books/{category}'
+  defaults:
+    '@package':    'RobertLemke.Example.Bookshop'
+    '@controller': 'Book'
+    '@action':     'index'
+    '@format':     'html'
+  routeParts:
+    'category':
+      objectType: 'RobertLemke\Example\Bookshop\Domain\Model\Category'
+      uriPattern: 'the-very-cool-category-{name}'
+
+-
+  name: 'Book actions'
+  uriPattern: 'books(/{@action})'
+  defaults:
+    '@package':    'RobertLemke.Example.Bookshop'
+    '@controller': 'Book'
+    '@action':     'index'
+    '@format':     'html'
+
+

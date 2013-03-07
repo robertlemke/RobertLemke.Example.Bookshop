@@ -1,0 +1,19 @@
+RobertLemke\Example\Bookshop\Controller\BookController:
+  properties:
+    htmlCache:
+      object:
+        factoryObjectName: TYPO3\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: 'RobertLemke_Example_Bookshop_Html'
+
+RobertLemke\Example\Bookshop\Domain\Repository\BookRepository:
+  properties:
+    htmlCache:
+      object:
+        factoryObjectName: TYPO3\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: 'RobertLemke_Example_Bookshop_Html'

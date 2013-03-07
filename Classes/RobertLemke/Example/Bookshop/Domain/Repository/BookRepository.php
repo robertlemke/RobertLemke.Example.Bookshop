@@ -15,7 +15,27 @@ use TYPO3\Flow\Annotations as Flow;
  */
 class BookRepository extends \TYPO3\Flow\Persistence\Repository {
 
-	// add customized methods here
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Cache\Frontend\StringFrontend
+	 */
+	protected $htmlCache;
+
+	public function add($object) {
+		parent::add($object);
+		$this->htmlCache->remove('BookController_index');
+	}
+
+	public function remove($object) {
+		parent::remove($object);
+		$this->htmlCache->remove('BookController_index');
+	}
+
+	public function update($object) {
+		parent::update($object);
+		$this->htmlCache->remove('BookController_index');
+	}
+
 
 }
 ?>

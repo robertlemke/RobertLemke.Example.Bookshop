@@ -6,10 +6,12 @@ namespace RobertLemke\Example\Bookshop\Controller;
  *                                                                        *
  *                                                                        */
 
+use RobertLemke\Example\Bookshop\Domain\Model\Category;
 use TYPO3\Flow\Annotations as Flow;
 
 use TYPO3\Flow\Mvc\Controller\ActionController;
 use \RobertLemke\Example\Bookshop\Domain\Model\Book;
+use TYPO3\Fluid\View\AbstractTemplateView;
 
 /**
  * Book controller for the RobertLemke.Example.Bookshop package
@@ -17,6 +19,12 @@ use \RobertLemke\Example\Bookshop\Domain\Model\Book;
  * @Flow\Scope("singleton")
  */
 class BookController extends ActionController {
+
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Cache\Frontend\StringFrontend
+	 */
+	protected $htmlCache;
 
 	/**
 	 * @Flow\Inject
@@ -56,10 +64,22 @@ class BookController extends ActionController {
 	/**
 	 * Shows a list of books
 	 *
+	 * @param \RobertLemke\Example\Bookshop\Domain\Model\Category $category
 	 * @return void
 	 */
-	public function indexAction() {
-		$this->view->assign('books', $this->bookRepository->findAll());
+	public function indexAction(Category $category = NULL) {
+		$output = $this->htmlCache->get('BookController_index');
+		if ($output === FALSE) {
+			if ($category !== NULL) {
+				$books = $this->bookRepository->findByCategory($category);
+			} else {
+				$books = $this->bookRepository->findAll();
+			}
+			$this->view->assign('books', $books);
+			$output = $this->view->render();
+#			$this->htmlCache->set('BookController_index', $output);
+		}
+		return $output;
 	}
 
 	/**
@@ -107,7 +127,7 @@ class BookController extends ActionController {
 			$book->setTitle($bookInfo['title']);
 			$book->setDescription('Automatically imported');
 			$book->setIsbn($newBook['isbn']);
-			$book->setPrice(12);
+			$book->setPrice(16);
 			$this->bookRepository->add($book);
 			$this->addFlashMessage('Created a new book.');
 		}

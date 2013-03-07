@@ -11,7 +11,7 @@ use TYPO3\Flow\Security\Authentication\Controller\AbstractAuthenticationControll
 
 
 /**
- * Hello controller for the RobertLemke.Example.Bookshop package
+ * Login controller for the RobertLemke.Example.Bookshop package
  *
  * @Flow\Scope("singleton")
  */

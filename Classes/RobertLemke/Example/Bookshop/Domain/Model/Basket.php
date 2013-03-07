@@ -6,6 +6,7 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use RobertLemke\Example\Bookshop\Exception\InvalidBasketOperationException;
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -57,6 +58,9 @@ class Basket {
 	 * @return void
 	 */
 	public function removeBook(Book $book) {
+		if (!$this->books->contains($book)) {
+			throw new InvalidBasketOperationException('This book has not been added before', 1362225568);
+		}
 		$this->books->removeElement($book);
 	}
 

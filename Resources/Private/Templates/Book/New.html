@@ -13,6 +13,14 @@
 					<f:form.textfield property="title" id="title" class="input-xlarge" />
 				</div>
 			</div>
+		<f:if condition="{categories}">
+			<div class="control-group">
+				<label class="control-label" for="category">Category</label>
+				<div class="controls">
+					<f:form.select property="category" options="{categories}" optionLabelField="name" id="category" /><br />
+				</div>
+			</div>
+		</f:if>
 			<div class="control-group">
 				<label class="control-label" for="isbn">ISBN</label>
 				<div class="controls">

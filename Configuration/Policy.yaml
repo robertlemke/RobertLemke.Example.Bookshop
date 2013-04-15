@@ -1,13 +1,13 @@
-#resources:
-#  methods:
-#    BookManagementMethods: 'method(.*Controller->(new|edit|create|delete|update)Action())'
-#    BookManagementDelete: 'method(.*BookController->deleteAction())'
+resources:
+  methods:
+    BookManagementMethods: 'method(.*Controller->(new|edit|create|delete|update)Action())'
+    BookManagementDelete: 'method(.*BookController->deleteAction())'
 
-#roles:
-#  Administrator: []
+roles:
+  Administrator: []
 
 
-#acls:
-#  methods:
-#    Administrator:
-#      BookManagementMethods: GRANT
+acls:
+  Administrator:
+    methods:
+      BookManagementMethods: GRANT

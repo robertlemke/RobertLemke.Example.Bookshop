@@ -48,7 +48,7 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 * @return void
 	 * @see typo3:flow:cache:flush
 	 */
-	public function createCommand($accountIdentifier, $password, $role = 'RobertLemke.Example.BookshopAdministrator', $outputHash = FALSE) {
+	public function createCommand($accountIdentifier, $password, $role = 'RobertLemke.Example.Bookshop:Administrator', $outputHash = FALSE) {
 		$account = $this->accountFactory->createAccountWithPassword($accountIdentifier, $password, array($role));
 		$this->accountRepository->add($account);
 

@@ -60,7 +60,7 @@ class Book {
 
 	/**
 	 * @var \TYPO3\Flow\Resource\Resource
-	 * @ORM\ManyToOne
+	 * @ORM\OneToOne(orphanRemoval=true)
 	 * @ORM\Column(nullable=true)
 	 */
 	protected $image;

@@ -8,11 +8,12 @@ namespace RobertLemke\Example\Bookshop\Tests\Unit\Domain\Model;
 
 use RobertLemke\Example\Bookshop\Domain\Model\Basket;
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
+use TYPO3\Flow\Tests\UnitTestCase;
 
 /**
  * Testcase for Basket
  */
-class BasketTest extends \TYPO3\Flow\Tests\UnitTestCase {
+class BasketTest extends UnitTestCase {
 
 	/**
 	 * @test

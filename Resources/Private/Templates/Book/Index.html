@@ -36,10 +36,12 @@
 											<button class="pull-right"><i class="icon-shopping-cart"></i> Add to Basket</button>
 										</f:form>
 									</p>
+									<f:security.ifAccess resource="BookManagementMethods">
 									<f:link.action action="edit" arguments="{book: book}"><i class="icon-edit"></i></f:link.action>
 									<f:form action="delete" controller="Book" name="book" object="{book}">
 										<button class="btn btn-link"><i class="icon-trash"></i></button>
 									</f:form>
+									</f:security.ifAccess>
 								</div>
 							</div>
 						</li>
@@ -51,9 +53,7 @@
 			<p>No books created yet.</p>
 		</f:else>
 	</f:if>
-	<f:security.ifAccess resource="BookManagementMethods">
-		<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action></p>
-	</f:security.ifAccess>
+	<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action></p>
 	<hr />
 	<h4>Create new book through ISBN</h4>
 	<p>

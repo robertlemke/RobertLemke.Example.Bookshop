@@ -46,7 +46,6 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 * @param string $role The role to set for the new account
 	 * @param boolean $outputHash If the credentials source should be displayed
 	 * @return void
-	 * @see typo3:flow:cache:flush
 	 */
 	public function createCommand($accountIdentifier, $password, $role = 'RobertLemke.Example.Bookshop:Administrator', $outputHash = FALSE) {
 		$account = $this->accountFactory->createAccountWithPassword($accountIdentifier, $password, array($role));

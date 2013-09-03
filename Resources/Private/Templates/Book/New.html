@@ -5,6 +5,23 @@
 <f:section name="Content">
 	<p>Just fill out the following form to create a new book:</p>
 
+	<f:form.validationResults>
+		<f:if condition="{validationResults.flattenedErrors}">
+			<ul class="errors">
+				<f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+					<li>{propertyPath}
+						<ul>
+							<f:for each="{errors}" as="error">
+								<li>{error.code}: {error}</li>
+							</f:for>
+						</ul>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</f:form.validationResults>
+
+
 	<f:form action="create" name="newBook" enctype="multipart/form-data">
 		<fieldset>
 			<div class="control-group">
@@ -40,7 +57,7 @@
 			<div class="control-group">
 				<label class="control-label" for="image">Image</label>
 				<div class="controls">
-					<f:form.upload property="image" id="image" />
+					<f:form.upload property="image.resource" id="image" />
 				</div>
 			</div>
 			<div class="control-group">

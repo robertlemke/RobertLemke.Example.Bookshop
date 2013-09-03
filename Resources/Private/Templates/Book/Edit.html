@@ -1,3 +1,4 @@
+{namespace m=TYPO3\Media\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title">{book.title}</f:section>
@@ -31,10 +32,10 @@
 				<label class="control-label" for="image">Image</label>
 				<div class="controls">
 					<f:if condition="{book.image}">
-						<f:then><img src="{f:uri.resource(resource: book.image)}" width="60" height="60" alt="" /></f:then>
+						<f:then><m:image image="{book.image}" maximumWidth="60" alt="" /></f:then>
 						<f:else><img src="http://placehold.it/60x60" width="60" height="60" alt="" /></f:else>
 					</f:if>
-					<f:form.upload property="image" id="image" />
+					<f:form.upload property="image.resource" id="image" />
 				</div>
 			</div>
 			<div class="control-group">

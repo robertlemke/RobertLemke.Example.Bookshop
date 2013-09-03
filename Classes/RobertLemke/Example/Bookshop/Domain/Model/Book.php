@@ -8,6 +8,7 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
 
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
+use TYPO3\Media\Domain\Model\Image;
 
 /**
  * A Book
@@ -59,8 +60,8 @@ class Book {
 	protected $reviews;
 
 	/**
-	 * @var \TYPO3\Flow\Resource\Resource
-	 * @ORM\OneToOne(orphanRemoval=true)
+	 * @var Image
+	 * @ORM\OneToOne(orphanRemoval=true, cascade={"all"})
 	 * @ORM\Column(nullable=true)
 	 */
 	protected $image;
@@ -154,14 +155,14 @@ class Book {
 	}
 
 	/**
-	 * @param \TYPO3\Flow\Resource\Resource $image
+	 * @param Image $image
 	 */
-	public function setImage(\TYPO3\Flow\Resource\Resource $image) {
+	public function setImage(Image $image) {
 		$this->image = $image;
 	}
 
 	/**
-	 * @return \TYPO3\Flow\Resource\Resource
+	 * @return Image
 	 */
 	public function getImage() {
 		return $this->image;

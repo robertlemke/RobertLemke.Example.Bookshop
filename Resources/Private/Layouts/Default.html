@@ -7,7 +7,7 @@
 		<f:render section="Title"/>
 	</title>
 	<f:base/>
-	<bootstrap:include/>
+	<bootstrap:include version="2" />
 </head>
 <body>
 <div class="container">
@@ -25,14 +25,19 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<f:if condition="{controller.book}">
-							<f:then>
-								<li class="active"><f:link.action action="index" controller="Book">Books</f:link.action></li>
-								<li><f:link.action action="index" controller="Category">Categories</f:link.action></li>
-							</f:then>
-							<f:else>
-								<li><f:link.action action="index" controller="Book">Books</f:link.action></li>
-								<li class="active"><f:link.action action="index" controller="Category">Categories</f:link.action></li>
-							</f:else>
+							<li class="active"><f:link.action action="index" controller="Book">Books</f:link.action></li>
+							<li><f:link.action action="index" controller="Gallery">Gallery</f:link.action></li>
+							<li><f:link.action action="index" controller="Category">Categories</f:link.action></li>
+						</f:if>
+						<f:if condition="{controller.gallery}">
+							<li><f:link.action action="index" controller="Book">Books</f:link.action></li>
+							<li class="active"><f:link.action action="index" controller="Gallery">Gallery</f:link.action></li>
+							<li><f:link.action action="index" controller="Category">Categories</f:link.action></li>
+						</f:if>
+						<f:if condition="{controller.category}">
+							<li><f:link.action action="index" controller="Book">Books</f:link.action></li>
+							<li><f:link.action action="index" controller="Gallery">Gallery</f:link.action></li>
+							<li class="active"><f:link.action action="index" controller="Category">Categories</f:link.action></li>
 						</f:if>
 						<f:if condition="{basket}">
 							<li><f:link.action action="index" controller="Basket"><i class="icon-shopping-cart"></i> Basket

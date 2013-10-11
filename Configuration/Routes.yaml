@@ -21,3 +21,13 @@
     '@format':     'html'
 
 
+-
+  name: 'Gallery actions'
+  uriPattern: 'gallery(/{@action})'
+  defaults:
+    '@package':    'RobertLemke.Example.Bookshop'
+    '@controller': 'Gallery'
+    '@action':     'index'
+    '@format':     'html'
+
+

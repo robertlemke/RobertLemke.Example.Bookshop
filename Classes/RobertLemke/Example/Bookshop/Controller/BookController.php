@@ -11,7 +11,6 @@ use TYPO3\Flow\Annotations as Flow;
 
 use TYPO3\Flow\Mvc\Controller\ActionController;
 use \RobertLemke\Example\Bookshop\Domain\Model\Book;
-use TYPO3\Fluid\View\AbstractTemplateView;
 use TYPO3\Media\Domain\Model\Adjustment\ResizeImageAdjustment;
 use TYPO3\Media\Domain\Model\ImageVariant;
 use TYPO3\Media\Domain\Repository\AssetRepository;
@@ -118,17 +117,6 @@ class BookController extends ActionController {
 	public function createAction(Book $newBook) {
 		$this->bookRepository->add($newBook);
 		$this->addFlashMessage('Created a new book.');
-
-		$image = $newBook->getImage();
-
-		$imageVariant = new ImageVariant($image);
-		$imageVariant->addAdjustment(
-			new ResizeImageAdjustment(array('maximumWidth' => 303))
-		);
-
-		$image->addVariant($imageVariant);
-		$this->assetRepository->add($imageVariant);
-
 		$this->redirect('index');
 	}
 

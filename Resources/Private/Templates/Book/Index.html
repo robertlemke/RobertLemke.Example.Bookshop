@@ -24,7 +24,7 @@
 						<li class="span3">
 							<div class="thumbnail">
 								<f:if condition="{book.image}">
-									<f:then><m:image image="{book.image}" maximumWidth="200" alt="" /></f:then>
+									<f:then><m:image asset="{book.image}" maximumWidth="200" alt="" /></f:then>
 									<f:else><img src="http://placehold.it/300x300" width="300" height="300" alt="" /></f:else>
 								</f:if>
 								<div class="caption">
@@ -37,12 +37,10 @@
 											<button class="pull-right"><i class="icon-shopping-cart"></i> Add to Basket</button>
 										</f:form>
 									</p>
-									<f:security.ifAccess resource="BookManagementMethods">
 									<f:link.action action="edit" arguments="{book: book}"><i class="icon-edit"></i></f:link.action>
 									<f:form action="delete" controller="Book" name="book" object="{book}">
 										<button class="btn btn-link" alt="Delete"><i class="icon-trash">D</i></button>
 									</f:form>
-									</f:security.ifAccess>
 								</div>
 							</div>
 						</li>

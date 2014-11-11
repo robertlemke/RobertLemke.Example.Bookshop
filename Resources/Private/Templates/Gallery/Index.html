@@ -13,7 +13,7 @@
 							<f:link.action action="show" arguments="{book: book}">
 								<div class="thumbnail">
 									<f:if condition="{book.image}">
-										<f:then><m:image image="{book.image}" maximumWidth="200" alt="" /></f:then>
+										<f:then><m:image asset="{book.image}" maximumWidth="200" alt="" /></f:then>
 										<f:else><img src="http://placehold.it/300x300" width="300" height="300" alt="" /></f:else>
 									</f:if>
 								</div>

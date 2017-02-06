@@ -8,7 +8,7 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
 
 use Neos\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\Media\Domain\Model\Image;
+use Neos\Media\Domain\Model\Image;
 
 /**
  * A Book

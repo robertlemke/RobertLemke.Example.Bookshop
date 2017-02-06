@@ -11,9 +11,9 @@ use Neos\Flow\Annotations as Flow;
 
 use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\FluidAdaptor\View\AbstractTemplateView;
-use TYPO3\Media\Domain\Model\Adjustment\ResizeImageAdjustment;
-use TYPO3\Media\Domain\Model\ImageVariant;
-use TYPO3\Media\Domain\Repository\AssetRepository;
+use Neos\Media\Domain\Model\Adjustment\ResizeImageAdjustment;
+use Neos\Media\Domain\Model\ImageVariant;
+use Neos\Media\Domain\Repository\AssetRepository;
 
 /**
  * Book controller for the RobertLemke.Example.Bookshop package

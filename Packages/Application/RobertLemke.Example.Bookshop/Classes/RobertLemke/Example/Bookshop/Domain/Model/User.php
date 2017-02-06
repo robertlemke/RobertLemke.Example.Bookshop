@@ -8,7 +8,7 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
 
 use Neos\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\Party\Domain\Model\Person;
+use Neos\Flow\Package\MetaData\Person;
 
 /**
  * A User

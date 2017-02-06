@@ -1,13 +1,18 @@
-
+---
 privilegeTargets:
-  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
-    BookManagementMethods:
+
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+
+    'RobertLemke.Example.Bookshop:BookManagementMethods':
       matcher: 'method(.*Controller->(new|edit|create|delete|update)Action())'
-    BookManagementDelete:
+
+    'RobertLemke.Example.Bookshop:BookManagementDelete':
       matcher: 'method(.*BookController->deleteAction())'
-roles:
-  'RobertLemke.Example.Bookshop:Administrator':
-    privileges:
-      -
-        privilegeTarget: BookManagementMethods
-        permission: GRANT
+
+#roles:
+#
+#  'RobertLemke.Example.Bookshop:Administrator':
+#    privileges:
+#      -
+#        privilegeTarget: 'RobertLemke.Example.Bookshop:BookManagementMethods'
+#        permission: GRANT

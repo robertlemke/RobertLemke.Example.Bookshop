@@ -6,14 +6,14 @@ namespace RobertLemke\Example\Bookshop\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  * Basket controller for the RobertLemke.Example.Bookshop package
  *
  * @Flow\Scope("singleton")
  */
-class BasketController extends \TYPO3\Flow\Mvc\Controller\ActionController {
+class BasketController extends \Neos\Flow\Mvc\Controller\ActionController {
 
 	/**
 	 * @Flow\Inject

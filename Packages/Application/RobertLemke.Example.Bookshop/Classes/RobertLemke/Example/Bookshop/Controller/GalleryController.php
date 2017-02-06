@@ -7,9 +7,9 @@ namespace RobertLemke\Example\Bookshop\Controller;
  *                                                                        */
 
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
-use TYPO3\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Mvc\Controller\ActionController;
 use TYPO3\Fluid\View\AbstractTemplateView;
 use TYPO3\Media\Domain\Model\Adjustment\ResizeImageAdjustment;
 use TYPO3\Media\Domain\Model\ImageVariant;
@@ -48,7 +48,7 @@ class GalleryController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @var \Neos\Flow\Persistence\PersistenceManagerInterface
 	 */
 	protected $persistenceManager;
 
@@ -57,7 +57,7 @@ class GalleryController extends ActionController {
 	 *
 	 * @return void
 	 */
-	public function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
+	public function initializeView(\Neos\Flow\Mvc\View\ViewInterface $view) {
 		$view->assign('controller', array('gallery' => TRUE));
 		$view->assign('categories', $this->categoryRepository->findAll());
 		$view->assign('basket', $this->basket);

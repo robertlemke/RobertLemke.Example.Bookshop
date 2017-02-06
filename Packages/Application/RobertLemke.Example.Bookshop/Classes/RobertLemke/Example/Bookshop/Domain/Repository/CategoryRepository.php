@@ -6,14 +6,14 @@ namespace RobertLemke\Example\Bookshop\Domain\Repository;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  * A repository for Categories
  *
  * @Flow\Scope("singleton")
  */
-class CategoryRepository extends \TYPO3\Flow\Persistence\Repository {
+class CategoryRepository extends \Neos\Flow\Persistence\Repository {
 
 	// add customized methods here
 

@@ -6,14 +6,14 @@ namespace RobertLemke\Example\Bookshop\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  * Hello controller for the RobertLemke.Example.Bookshop package
  *
  * @Flow\Scope("singleton")
  */
-class HelloController extends \TYPO3\Flow\Mvc\Controller\ActionController {
+class HelloController extends \Neos\Flow\Mvc\Controller\ActionController {
 
 	/**
 	 * Index action

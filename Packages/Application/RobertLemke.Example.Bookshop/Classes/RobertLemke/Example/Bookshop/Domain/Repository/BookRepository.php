@@ -6,18 +6,18 @@ namespace RobertLemke\Example\Bookshop\Domain\Repository;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
 /**
  * A repository for Books
  *
  * @Flow\Scope("singleton")
  */
-class BookRepository extends \TYPO3\Flow\Persistence\Repository {
+class BookRepository extends \Neos\Flow\Persistence\Repository {
 
 	/**
 	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Cache\Frontend\StringFrontend
+	 * @var \Neos\Flow\Cache\Frontend\StringFrontend
 	 */
 	protected $htmlCache;
 

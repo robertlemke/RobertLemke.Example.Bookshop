@@ -7,7 +7,7 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
  *                                                                        */
 
 use RobertLemke\Example\Bookshop\Exception\InvalidBasketOperationException;
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

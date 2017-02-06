@@ -1,6 +1,6 @@
 
 privilegeTargets:
-  TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
     BookManagementMethods:
       matcher: 'method(.*Controller->(new|edit|create|delete|update)Action())'
     BookManagementDelete:

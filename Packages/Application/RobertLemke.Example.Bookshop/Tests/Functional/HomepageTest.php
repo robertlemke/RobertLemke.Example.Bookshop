@@ -12,21 +12,21 @@ namespace RobertLemke\Example\Bookshop\Tests\Functional;
  *                                                                        */
 
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
-use TYPO3\Flow\Http\Client\Browser;
-use TYPO3\Flow\Mvc\Routing\Route;
-use TYPO3\Flow\Http\Request;
-use TYPO3\Flow\Http\Response;
-use TYPO3\Flow\Http\Uri;
+use Neos\Flow\Http\Client\Browser;
+use Neos\Flow\Mvc\Routing\Route;
+use Neos\Flow\Http\Request;
+use Neos\Flow\Http\Response;
+use Neos\Flow\Http\Uri;
 
 /**
  * Functional tests for the ActionController
  */
-class HomepageTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
+class HomepageTest extends \Neos\Flow\Tests\FunctionalTestCase {
 
 	/**
 	 * Contains a virtual, preinitialized browser
 	 *
-	 * @var \TYPO3\Flow\Http\Client\Browser
+	 * @var \Neos\Flow\Http\Client\Browser
 	 * @api
 	 */
 	protected $browser;

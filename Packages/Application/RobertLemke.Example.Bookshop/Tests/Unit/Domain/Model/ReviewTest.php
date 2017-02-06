@@ -9,7 +9,7 @@ namespace RobertLemke\Example\Bookshop\Tests\Unit\Domain\Model;
 /**
  * Testcase for Review
  */
-class ReviewTest extends \TYPO3\Flow\Tests\UnitTestCase {
+class ReviewTest extends \Neos\Flow\Tests\UnitTestCase {
 
 	/**
 	 * @test

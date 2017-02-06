@@ -18,13 +18,13 @@ use RobertLemke\Example\Bookshop\Controller\BookController;
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
 use RobertLemke\Example\Bookshop\Domain\Model\Category;
 
-class BookControllerTest extends \TYPO3\Flow\Tests\UnitTestCase {
+class BookControllerTest extends \Neos\Flow\Tests\UnitTestCase {
 
 	/**
 	 * @test
 	 */
 	public function indexActionFiltersByCategoryIfCategoryIsSet() {
-		$mockCache = $this->getMock('TYPO3\Flow\Cache\StringFrontend', array('get', 'set'), array(), '', FALSE);
+		$mockCache = $this->getMock('Neos\Flow\Cache\StringFrontend', array('get', 'set'), array(), '', FALSE);
 		$mockCache->expects($this->any())->method('get')->will($this->returnValue(FALSE));
 
 		$category = new Category();

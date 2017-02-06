@@ -7,9 +7,9 @@ namespace RobertLemke\Example\Bookshop\Controller;
  *                                                                        */
 
 use RobertLemke\Example\Bookshop\Domain\Model\Category;
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 
-use TYPO3\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Mvc\Controller\ActionController;
 use \RobertLemke\Example\Bookshop\Domain\Model\Book;
 use TYPO3\Media\Domain\Model\Adjustment\ResizeImageAdjustment;
 use TYPO3\Media\Domain\Model\ImageVariant;
@@ -24,7 +24,7 @@ class BookController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Cache\Frontend\StringFrontend
+	 * @var \Neos\Flow\Cache\Frontend\StringFrontend
 	 */
 	protected $htmlCache;
 
@@ -63,7 +63,7 @@ class BookController extends ActionController {
 	 *
 	 * @return void
 	 */
-	public function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
+	public function initializeView(\Neos\Flow\Mvc\View\ViewInterface $view) {
 		$view->assign('controller', array('book' => TRUE));
 		$view->assign('categories', $this->categoryRepository->findAll());
 		$view->assign('basket', $this->basket);

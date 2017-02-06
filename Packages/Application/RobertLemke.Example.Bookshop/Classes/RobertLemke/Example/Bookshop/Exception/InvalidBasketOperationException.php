@@ -16,7 +16,7 @@ namespace RobertLemke\Example\Bookshop\Exception;
  *
  * @api
  */
-class InvalidBasketOperationException extends \TYPO3\Flow\Exception {
+class InvalidBasketOperationException extends \Neos\Flow\Exception {
 
 }
 ?>

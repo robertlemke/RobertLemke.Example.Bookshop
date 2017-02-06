@@ -5,10 +5,10 @@ namespace RobertLemke\Example\Bookshop\Service;
  * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\Flow\Http\Client\Browser;
-use TYPO3\Flow\Http\Client\CurlEngine;
+use Neos\Flow\Http\Client\Browser;
+use Neos\Flow\Http\Client\CurlEngine;
 
 /**
  * An ISBN Lookup Service
@@ -19,7 +19,7 @@ class IsbnLookupService {
 
 	/**
 	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Http\Client\Browser
+	 * @var \Neos\Flow\Http\Client\Browser
 	 */
 	protected $browser;
 

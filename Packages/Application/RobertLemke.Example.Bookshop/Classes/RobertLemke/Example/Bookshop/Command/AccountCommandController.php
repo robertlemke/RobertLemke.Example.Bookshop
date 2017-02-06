@@ -6,7 +6,7 @@ namespace RobertLemke\Example\Bookshop\Command;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 use RobertLemke\Example\Bookshop\Domain\Model\User;
 use TYPO3\Party\Domain\Model\PersonName;
 
@@ -15,17 +15,17 @@ use TYPO3\Party\Domain\Model\PersonName;
  *
  * @Flow\Scope("singleton")
  */
-class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
+class AccountCommandController extends \Neos\Flow\Cli\CommandController {
 
 	/**
 	 * @Flow\Inject
-	 * @var TYPO3\Flow\Security\AccountFactory
+	 * @var Neos\Flow\Security\AccountFactory
 	 */
 	protected $accountFactory;
 
 	/**
 	 * @Flow\Inject
-	 * @var TYPO3\Flow\Security\AccountRepository
+	 * @var Neos\Flow\Security\AccountRepository
 	 */
 	protected $accountRepository;
 

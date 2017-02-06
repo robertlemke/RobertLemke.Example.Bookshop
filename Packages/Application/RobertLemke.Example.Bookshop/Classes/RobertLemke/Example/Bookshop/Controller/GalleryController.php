@@ -10,7 +10,7 @@ use RobertLemke\Example\Bookshop\Domain\Model\Book;
 use Neos\Flow\Annotations as Flow;
 
 use Neos\Flow\Mvc\Controller\ActionController;
-use TYPO3\Fluid\View\AbstractTemplateView;
+use Neos\FluidAdaptor\View\AbstractTemplateView;
 use TYPO3\Media\Domain\Model\Adjustment\ResizeImageAdjustment;
 use TYPO3\Media\Domain\Model\ImageVariant;
 use TYPO3\Media\Domain\Repository\AssetRepository;

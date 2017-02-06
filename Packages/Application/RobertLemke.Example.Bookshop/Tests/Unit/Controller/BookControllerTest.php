@@ -39,7 +39,7 @@ class BookControllerTest extends \Neos\Flow\Tests\UnitTestCase {
 		$mockRepository->expects($this->once())->method('findByCategory')->with($category)
 				->will($this->returnValue($books));
 
-		$mockView = $this->getMock('TYPO3\Fluid\View\TemplateView', array(), array(), '', FALSE);
+		$mockView = $this->getMock('Neos\FluidAdaptor\View\TemplateView', array(), array(), '', FALSE);
 
 		$controller = new BookController();
 		$this->inject($controller, 'htmlCache', $mockCache);

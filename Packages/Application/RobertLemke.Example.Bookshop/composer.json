@@ -6,6 +6,7 @@
     "require": {
         "require": {
             "neos/flow": "~4.0.0",
+            "neos/party": "~4.0.0",
             "neos/media": "~3.0.0"
         }
     },

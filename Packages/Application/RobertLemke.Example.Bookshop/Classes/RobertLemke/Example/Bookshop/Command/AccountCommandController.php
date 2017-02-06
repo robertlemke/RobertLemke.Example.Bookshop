@@ -7,8 +7,11 @@ namespace RobertLemke\Example\Bookshop\Command;
  *                                                                        */
 
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Security\AccountFactory;
+use Neos\Flow\Security\AccountRepository;
+use Neos\Party\Domain\Model\PersonName;
+use Neos\Party\Domain\Repository\PartyRepository;
 use RobertLemke\Example\Bookshop\Domain\Model\User;
-use TYPO3\Party\Domain\Model\PersonName;
 
 /**
  * Account command controller for the RobertLemke.Example.Bookshop package
@@ -19,19 +22,19 @@ class AccountCommandController extends \Neos\Flow\Cli\CommandController {
 
 	/**
 	 * @Flow\Inject
-	 * @var Neos\Flow\Security\AccountFactory
+	 * @var AccountFactory
 	 */
 	protected $accountFactory;
 
 	/**
 	 * @Flow\Inject
-	 * @var Neos\Flow\Security\AccountRepository
+	 * @var AccountRepository
 	 */
 	protected $accountRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var TYPO3\Party\Domain\Repository\PartyRepository
+	 * @var PartyRepository
 	 */
 	protected $partyRepository;
 
@@ -51,7 +54,7 @@ class AccountCommandController extends \Neos\Flow\Cli\CommandController {
 		$account = $this->accountFactory->createAccountWithPassword($accountIdentifier, $password, array($role));
 		$this->accountRepository->add($account);
 
-		$user = new User();
+		$user = new User($role, 'Robert Lemke');
 		$user->addAccount($account);
 
 		$user->setDepartment('Workshop');

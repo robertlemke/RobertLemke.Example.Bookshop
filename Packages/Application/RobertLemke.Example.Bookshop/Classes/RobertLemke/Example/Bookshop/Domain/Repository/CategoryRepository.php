@@ -13,9 +13,11 @@ use Neos\Flow\Annotations as Flow;
  *
  * @Flow\Scope("singleton")
  */
-class CategoryRepository extends \Neos\Flow\Persistence\Repository {
+class CategoryRepository extends \Neos\Flow\Persistence\Repository
+{
 
-	// add customized methods here
+    // add customized methods here
 
 }
+
 ?>

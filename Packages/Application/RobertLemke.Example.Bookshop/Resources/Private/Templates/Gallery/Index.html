@@ -4,27 +4,29 @@
 <f:section name="Title">Gallery</f:section>
 
 <f:section name="Content">
-	<f:if condition="{books}">
-		<f:then>
-			<div class="span12">
-				<ul class="thumbnails">
-					<f:for each="{books}" as="book">
-						<li class="span3">
-							<f:link.action action="show" arguments="{book: book}">
-								<div class="thumbnail">
-									<f:if condition="{book.image}">
-										<f:then><m:image asset="{book.image}" maximumWidth="200" alt="" /></f:then>
-										<f:else><img src="http://placehold.it/300x300" width="300" height="300" alt="" /></f:else>
-									</f:if>
-								</div>
-							</f:link.action>
-						</li>
-					</f:for>
-				</ul>
-			</div>
-		</f:then>
-		<f:else>
-			<p>No books created yet.</p>
-		</f:else>
-	</f:if>
+    <f:if condition="{books}">
+        <f:then>
+            <div class="span12">
+                <ul class="thumbnails">
+                    <f:for each="{books}" as="book">
+                        <li class="span3">
+                            <f:link.action action="show" arguments="{book: book}">
+                                <div class="thumbnail">
+                                    <f:if condition="{book.image}">
+                                        <f:then>
+                                            <m:image image="{book.image}" maximumWidth="200" alt=""/>
+                                        </f:then>
+                                        <f:else><img src="http://placehold.it/300x300" width="300" height="300" alt=""/></f:else>
+                                    </f:if>
+                                </div>
+                            </f:link.action>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
+        </f:then>
+        <f:else>
+            <p>No books created yet.</p>
+        </f:else>
+    </f:if>
 </f:section>

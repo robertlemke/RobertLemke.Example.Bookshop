@@ -13,27 +13,30 @@ use Neos\Flow\Annotations as Flow;
  *
  * @Flow\Scope("singleton")
  */
-class HelloController extends \Neos\Flow\Mvc\Controller\ActionController {
+class HelloController extends \Neos\Flow\Mvc\Controller\ActionController
+{
 
-	/**
-	 * Index action
-	 *
-	 * @param string $name
-	 * @return string
-	 */
-	public function indexAction($name) {
-		$this->response->setHeader('X-Coffee', 'Arabica/without-sugar');
-		$this->response->getHeaders()->setCacheControlDirective('max-age', 500);
-		$this->response->setExpires(new \DateTime('tomorrow'));
-		return sprintf('Hello %s', $this->request->getFormat());
-	}
+    /**
+     * Index action
+     *
+     * @param string $name
+     * @return string
+     */
+    public function indexAction($name)
+    {
+        $this->response->setHeader('X-Coffee', 'Arabica/without-sugar');
+        $this->response->getHeaders()->setCacheControlDirective('max-age', 500);
+        $this->response->setExpires(new \DateTime('tomorrow'));
+        return sprintf('Hello %s', $this->request->getFormat());
+    }
 
-	/**
-	 * @return string
-	 */
-	public function anotherAction() {
-		$this->redirect('index');
-	}
+    /**
+     * @return string
+     */
+    public function anotherAction()
+    {
+        $this->redirect('index');
+    }
 }
 
 ?>

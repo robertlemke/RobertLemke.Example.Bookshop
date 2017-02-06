@@ -3,33 +3,41 @@
 <f:section name="Title">Basket</f:section>
 
 <f:section name="Content">
-	<f:if condition="{basket.books}">
-		<f:then>
-			<p>These books are currently in your shopping basket:</p>
-			<div class="span12">
-				<ul class="thumbnails">
-					<f:for each="{basket.books}" as="book">
-						<li class="span3">
-							<div class="thumbnail">
-								<f:if condition="{book.image}">
-									<f:then><img src="{f:uri.resource(resource: book.image)}" width="300" alt="" /></f:then>
-									<f:else><img src="http://placehold.it/300x300" width="300" alt="" /></f:else>
-								</f:if>
-								<div class="caption">
-									<h5><f:link.action action="show" controller="Book" arguments="{book: book}">{book.title}</f:link.action></h5>
-									<p>{book.category.name}</p>
-									<p>{book.description}</p>
-									<p><strong><f:format.number>{book.price}</f:format.number> €</strong> <f:link.action action="remove" controller="Basket" arguments="{book: book}" class="btn pull-right">Remove</f:link.action></p>
-								</div>
-							</div>
-						</li>
-					</f:for>
-				</ul>
-			</div>
-		</f:then>
-		<f:else>
-			<p>Your shopping basket is empty.</p>
-		</f:else>
-	</f:if>
-	<p><f:link.action action="index" controller="Book">Back</f:link.action></p>
+    <f:if condition="{basket.books}">
+        <f:then>
+            <p>These books are currently in your shopping basket:</p>
+            <div class="span12">
+                <ul class="thumbnails">
+                    <f:for each="{basket.books}" as="book">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <f:if condition="{book.image}">
+                                    <f:then><img src="{f:uri.resource(resource: book.image)}" width="300" alt=""/></f:then>
+                                    <f:else><img src="http://placehold.it/300x300" width="300" alt=""/></f:else>
+                                </f:if>
+                                <div class="caption">
+                                    <h5>
+                                        <f:link.action action="show" controller="Book" arguments="{book: book}">{book.title}</f:link.action>
+                                    </h5>
+                                    <p>{book.category.name}</p>
+                                    <p>{book.description}</p>
+                                    <p><strong>
+                                        <f:format.number>{book.price}</f:format.number>
+                                        €</strong>
+                                        <f:link.action action="remove" controller="Basket" arguments="{book: book}" class="btn pull-right">Remove</f:link.action>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
+        </f:then>
+        <f:else>
+            <p>Your shopping basket is empty.</p>
+        </f:else>
+    </f:if>
+    <p>
+        <f:link.action action="index" controller="Book">Back</f:link.action>
+    </p>
 </f:section>

@@ -18,37 +18,40 @@ use RobertLemke\Example\Bookshop\Controller\BookController;
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
 use RobertLemke\Example\Bookshop\Domain\Model\Category;
 
-class BookControllerTest extends \Neos\Flow\Tests\UnitTestCase {
+class BookControllerTest extends \Neos\Flow\Tests\UnitTestCase
+{
 
-	/**
-	 * @test
-	 */
-	public function indexActionFiltersByCategoryIfCategoryIsSet() {
-		$mockCache = $this->getMock('Neos\Flow\Cache\StringFrontend', array('get', 'set'), array(), '', FALSE);
-		$mockCache->expects($this->any())->method('get')->will($this->returnValue(FALSE));
+    /**
+     * @test
+     */
+    public function indexActionFiltersByCategoryIfCategoryIsSet()
+    {
+        $mockCache = $this->getMock('Neos\Flow\Cache\StringFrontend', array('get', 'set'), array(), '', FALSE);
+        $mockCache->expects($this->any())->method('get')->will($this->returnValue(FALSE));
 
-		$category = new Category();
-		$category->setName('Coffee');
-		$books = array(
-			new Book()
-		);
+        $category = new Category();
+        $category->setName('Coffee');
+        $books = array(
+            new Book()
+        );
 
-		$mockRepository = $this->getMock('RobertLemke\Example\Bookshop\Domain\Repository\BookRepository',
-			array('findByCategory')
-		);
-		$mockRepository->expects($this->once())->method('findByCategory')->with($category)
-				->will($this->returnValue($books));
+        $mockRepository = $this->getMock('RobertLemke\Example\Bookshop\Domain\Repository\BookRepository',
+            array('findByCategory')
+        );
+        $mockRepository->expects($this->once())->method('findByCategory')->with($category)
+            ->will($this->returnValue($books));
 
-		$mockView = $this->getMock('Neos\FluidAdaptor\View\TemplateView', array(), array(), '', FALSE);
+        $mockView = $this->getMock('Neos\FluidAdaptor\View\TemplateView', array(), array(), '', FALSE);
 
-		$controller = new BookController();
-		$this->inject($controller, 'htmlCache', $mockCache);
-		$this->inject($controller, 'bookRepository', $mockRepository);
-		$this->inject($controller, 'view', $mockView);
+        $controller = new BookController();
+        $this->inject($controller, 'htmlCache', $mockCache);
+        $this->inject($controller, 'bookRepository', $mockRepository);
+        $this->inject($controller, 'view', $mockView);
 
-		$mockView->expects($this->once())->method('assign')->with('books', $books);
+        $mockView->expects($this->once())->method('assign')->with('books', $books);
 
-		$controller->indexAction($category);
-	}
+        $controller->indexAction($category);
+    }
 }
+
 ?>

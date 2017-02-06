@@ -13,3 +13,8 @@ Neos:
                 '@controller': Login
                 '@action': login
                 '@format': html
+
+
+    mvc:
+      routes:
+        'RobertLemke.Example.Bookshop': true

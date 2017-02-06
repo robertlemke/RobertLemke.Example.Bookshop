@@ -6,8 +6,8 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use Neos\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
+use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Package\MetaData\Person;
 
 /**
@@ -15,26 +15,30 @@ use Neos\Flow\Package\MetaData\Person;
  *
  * @Flow\Entity
  */
-class User extends Person {
+class User extends Person
+{
 
-	/**
-	 * @var string
-	 */
-	protected $department;
+    /**
+     * @var string
+     */
+    protected $department;
 
-	/**
-	 * @param string $department
-	 */
-	public function setDepartment($department) {
-		$this->department = $department;
-	}
+    /**
+     * @param string $department
+     */
+    public function setDepartment($department)
+    {
+        $this->department = $department;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDepartment() {
-		return $this->department;
-	}
+    /**
+     * @return string
+     */
+    public function getDepartment()
+    {
+        return $this->department;
+    }
 
 }
+
 ?>

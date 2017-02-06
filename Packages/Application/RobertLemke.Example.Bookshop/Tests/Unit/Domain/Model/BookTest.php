@@ -9,17 +9,20 @@ namespace RobertLemke\Example\Bookshop\Tests\Unit\Domain\Model;
 /**
  * Testcase for Book
  */
-class BookTest extends \Neos\Flow\Tests\UnitTestCase {
+class BookTest extends \Neos\Flow\Tests\UnitTestCase
+{
 
-	/**
-	 * @test
-	 */
-	public function makeSureThatSomethingHolds() {
-		$this->markTestIncomplete('Automatically generated test case; you need to adjust this!');
+    /**
+     * @test
+     */
+    public function makeSureThatSomethingHolds()
+    {
+        $this->markTestIncomplete('Automatically generated test case; you need to adjust this!');
 
-		$expected = 'Foo';
-		$actual = 'Foo'; // This should be the result of some function call
-		$this->assertSame($expected, $actual);
-	}
+        $expected = 'Foo';
+        $actual = 'Foo'; // This should be the result of some function call
+        $this->assertSame($expected, $actual);
+    }
 }
+
 ?>

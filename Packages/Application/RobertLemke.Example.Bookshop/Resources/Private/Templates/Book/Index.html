@@ -4,68 +4,80 @@
 <f:section name="Title">Overview</f:section>
 
 <f:section name="Content">
-	<f:if condition="{books}">
-		<f:then>
-			<p>We have this fine selection of a handful of books. Buy them while you still can.</p>
-			<f:if condition="{categories}">
-			<p>
-				Filter by category:
-				<ul>
-					<li><f:link.action action="index">All</f:link.action></li>
-					<f:for each="{categories}" as="category">
-						<li><f:link.action action="index" arguments="{category: category}">{category.name}</f:link.action></li>
-					</f:for>
-				</ul>
-			<p>
-			</f:if>
-			<div class="span12">
-				<ul class="thumbnails">
-					<f:for each="{books}" as="book">
-						<li class="span3">
-							<div class="thumbnail">
-								<f:if condition="{book.image}">
-									<f:then><m:image asset="{book.image}" maximumWidth="200" alt="" /></f:then>
-									<f:else><img src="http://placehold.it/300x300" width="300" height="300" alt="" /></f:else>
-								</f:if>
-								<div class="caption">
-									<h5><f:link.action action="show" arguments="{book: book}">{book.title}</f:link.action></h5>
-									<p>{book.category.name}</p>
-									<p>{book.description}</p>
-									<p>
-										<strong><f:format.number>{book.price}</f:format.number> €</strong>
-										<f:form action="add" controller="Basket" name="book" object="{book}">
-											<button class="pull-right"><i class="icon-shopping-cart"></i> Add to Basket</button>
-										</f:form>
-									</p>
-									<f:link.action action="edit" arguments="{book: book}"><i class="icon-edit"></i></f:link.action>
-									<f:form action="delete" controller="Book" name="book" object="{book}">
-										<button class="btn btn-link" alt="Delete"><i class="icon-trash">D</i></button>
-									</f:form>
-								</div>
-							</div>
-						</li>
-					</f:for>
-				</ul>
-			</div>
-		</f:then>
-		<f:else>
-			<p>No books created yet.</p>
-		</f:else>
-	</f:if>
-	<p><f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action></p>
-	<hr />
-	<h4>Create new book through ISBN</h4>
-	<p>
-		<f:form action="createIsbn" name="newBook">
-			<fieldset>
-				<div class="control-group">
-					<label class="control-label" for="isbn">ISBN</label>
-					<div class="controls">
-						<f:form.textfield property="isbn" id="isbn" />
-					</div>
-				</div>
-				<button type="submit" class="btn btn-primary">Create Book</button>
-			</fieldset>
-		</f:form>
-	</p>
+    <f:if condition="{books}">
+        <f:then>
+            <p>We have this fine selection of a handful of books. Buy them while you still can.</p>
+            <f:if condition="{categories}">
+                <p>
+                    Filter by category:
+                <ul>
+                    <li>
+                        <f:link.action action="index">All</f:link.action>
+                    </li>
+                    <f:for each="{categories}" as="category">
+                        <li>
+                            <f:link.action action="index" arguments="{category: category}">{category.name}</f:link.action>
+                        </li>
+                    </f:for>
+                </ul>
+                <p>
+            </f:if>
+            <div class="span12">
+                <ul class="thumbnails">
+                    <f:for each="{books}" as="book">
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <f:if condition="{book.image}">
+                                    <f:then>
+                                        <m:image image="{book.image}" maximumWidth="200" alt=""/>
+                                    </f:then>
+                                    <f:else><img src="http://placehold.it/300x300" width="300" height="300" alt=""/></f:else>
+                                </f:if>
+                                <div class="caption">
+                                    <h5>
+                                        <f:link.action action="show" arguments="{book: book}">{book.title}</f:link.action>
+                                    </h5>
+                                    <p>{book.category.name}</p>
+                                    <p>{book.description}</p>
+                                    <p>
+                                        <strong>
+                                            <f:format.number>{book.price}</f:format.number>
+                                            €</strong>
+                                        <f:form action="add" controller="Basket" name="book" object="{book}">
+                                            <button class="pull-right"><i class="icon-shopping-cart"></i> Add to Basket</button>
+                                        </f:form>
+                                    </p>
+                                    <f:link.action action="edit" arguments="{book: book}"><i class="icon-edit"></i></f:link.action>
+                                    <f:form action="delete" controller="Book" name="book" object="{book}">
+                                        <button class="btn btn-link" alt="Delete"><i class="icon-trash">D</i></button>
+                                    </f:form>
+                                </div>
+                            </div>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
+        </f:then>
+        <f:else>
+            <p>No books created yet.</p>
+        </f:else>
+    </f:if>
+    <p>
+        <f:link.action class="btn" action="new"><i class="icon-plus"></i> Create a new book</f:link.action>
+    </p>
+    <hr/>
+    <h4>Create new book through ISBN</h4>
+    <p>
+        <f:form action="createIsbn" name="newBook">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="isbn">ISBN</label>
+                    <div class="controls">
+                        <f:form.textfield property="isbn" id="isbn"/>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Book</button>
+            </fieldset>
+        </f:form>
+    </p>
 </f:section>

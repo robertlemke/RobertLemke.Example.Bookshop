@@ -1,39 +1,41 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 <f:section name="Title">{book.title}</f:section>
 
 <f:section name="Content">
-	<p/>
-	<table class="table table-bordered table-striped" style="width: 500px">
-		<tr>
-			<th>Title</th>
-			<td>{book.title}</td>
-		</tr>
-		<tr>
-			<th>ISBN</th>
-			<td>{book.isbn}</td>
-		</tr>
-		<tr>
-			<th>Category</th>
-			<td>{book.category.name}</td>
-		</tr>
-		<tr>
-			<th>Price</th>
-			<td>{book.price}</td>
-		</tr>
-		<tr>
-			<th>Publisher</th>
-			<td>{book.publisher}</td>
-		</tr>
-		<tr>
-			<th>Authors</th>
-			<td>{book.authors}</td>
-		</tr>
-		<tr>
-			<th>Description</th>
-			<td>{book.description}</td>
-		</tr>
+    <p/>
+    <table class="table table-bordered table-striped" style="width: 500px">
+        <tr>
+            <th>Title</th>
+            <td>{book.title}</td>
+        </tr>
+        <tr>
+            <th>ISBN</th>
+            <td>{book.isbn}</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>{book.category.name}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>{book.price}</td>
+        </tr>
+        <tr>
+            <th>Publisher</th>
+            <td>{book.publisher}</td>
+        </tr>
+        <tr>
+            <th>Authors</th>
+            <td>{book.authors}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{book.description}</td>
+        </tr>
 
-	</table>
-	<p><f:link.action action="index">Back</f:link.action></p>
+    </table>
+    <p>
+        <f:link.action action="index">Back</f:link.action>
+    </p>
 </f:section>

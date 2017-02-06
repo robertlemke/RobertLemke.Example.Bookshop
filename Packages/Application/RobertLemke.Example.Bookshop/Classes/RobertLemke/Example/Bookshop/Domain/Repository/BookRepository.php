@@ -13,29 +13,34 @@ use Neos\Flow\Annotations as Flow;
  *
  * @Flow\Scope("singleton")
  */
-class BookRepository extends \Neos\Flow\Persistence\Repository {
+class BookRepository extends \Neos\Flow\Persistence\Repository
+{
 
-	/**
-	 * @Flow\Inject
-	 * @var \Neos\Cache\Frontend\StringFrontend
-	 */
-	protected $htmlCache;
+    /**
+     * @Flow\Inject
+     * @var \Neos\Cache\Frontend\StringFrontend
+     */
+    protected $htmlCache;
 
-	public function add($object) {
-		parent::add($object);
-		$this->htmlCache->remove('BookController_index');
-	}
+    public function add($object)
+    {
+        parent::add($object);
+        $this->htmlCache->remove('BookController_index');
+    }
 
-	public function remove($object) {
-		parent::remove($object);
-		$this->htmlCache->remove('BookController_index');
-	}
+    public function remove($object)
+    {
+        parent::remove($object);
+        $this->htmlCache->remove('BookController_index');
+    }
 
-	public function update($object) {
-		parent::update($object);
-		$this->htmlCache->remove('BookController_index');
-	}
+    public function update($object)
+    {
+        parent::update($object);
+        $this->htmlCache->remove('BookController_index');
+    }
 
 
 }
+
 ?>

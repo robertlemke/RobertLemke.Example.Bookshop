@@ -7,6 +7,7 @@ namespace RobertLemke\Example\Bookshop\Command;
  *                                                                        */
 
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Cli\CommandController;
 use Neos\Flow\Security\AccountFactory;
 use Neos\Flow\Security\AccountRepository;
 use Neos\Party\Domain\Model\PersonName;
@@ -18,57 +19,59 @@ use RobertLemke\Example\Bookshop\Domain\Model\User;
  *
  * @Flow\Scope("singleton")
  */
-class AccountCommandController extends \Neos\Flow\Cli\CommandController {
+class AccountCommandController extends CommandController
+{
 
-	/**
-	 * @Flow\Inject
-	 * @var AccountFactory
-	 */
-	protected $accountFactory;
+    /**
+     * @Flow\Inject
+     * @var AccountFactory
+     */
+    protected $accountFactory;
 
-	/**
-	 * @Flow\Inject
-	 * @var AccountRepository
-	 */
-	protected $accountRepository;
+    /**
+     * @Flow\Inject
+     * @var AccountRepository
+     */
+    protected $accountRepository;
 
-	/**
-	 * @Flow\Inject
-	 * @var PartyRepository
-	 */
-	protected $partyRepository;
+    /**
+     * @Flow\Inject
+     * @var PartyRepository
+     */
+    protected $partyRepository;
 
-	/**
-	 * Creates an account
-	 *
-	 * This command creates a <u>new account</u> with Administrator rights for the
-	 * Book Shop.
-	 *
-	 * @param string $accountIdentifier The account identifier
-	 * @param string $password The password
-	 * @param string $role The role to set for the new account
-	 * @param boolean $outputHash If the credentials source should be displayed
-	 * @return void
-	 */
-	public function createCommand($accountIdentifier, $password, $role = 'RobertLemke.Example.Bookshop:Administrator', $outputHash = FALSE) {
-		$account = $this->accountFactory->createAccountWithPassword($accountIdentifier, $password, array($role));
-		$this->accountRepository->add($account);
+    /**
+     * Creates an account
+     *
+     * This command creates a <u>new account</u> with Administrator rights for the
+     * Book Shop.
+     *
+     * @param string $accountIdentifier The account identifier
+     * @param string $password The password
+     * @param string $role The role to set for the new account
+     * @param boolean $outputHash If the credentials source should be displayed
+     * @return void
+     */
+    public function createCommand($accountIdentifier, $password, $role = 'RobertLemke.Example.Bookshop:Administrator', $outputHash = FALSE)
+    {
+        $account = $this->accountFactory->createAccountWithPassword($accountIdentifier, $password, array($role));
+        $this->accountRepository->add($account);
 
-		$user = new User($role, 'Robert Lemke');
-		$user->addAccount($account);
+        $user = new User($role, 'Robert Lemke');
+        $user->addAccount($account);
 
-		$user->setDepartment('Workshop');
+        $user->setDepartment('Workshop');
 
-		$name = new PersonName('', 'Robert', '', 'Lemke');
-		$user->setName($name);
+        $name = new PersonName('', 'Robert', '', 'Lemke');
+        $user->setName($name);
 
-		$this->partyRepository->add($user);
+        $this->partyRepository->add($user);
 
-		$this->outputLine('Created a new account.');
-		if ($outputHash) {
-			$this->outputLine('The credentials source is: %s', array($account->getCredentialsSource()));
-		}
-	}
+        $this->outputLine('Created a new account.');
+        if ($outputHash) {
+            $this->outputLine('The credentials source is: %s', array($account->getCredentialsSource()));
+        }
+    }
 }
 
 ?>

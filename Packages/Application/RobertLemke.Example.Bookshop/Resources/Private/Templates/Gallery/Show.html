@@ -1,16 +1,18 @@
 {namespace m=Neos\Media\ViewHelpers}
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 <f:section name="Title">{book.title}</f:section>
 
 <f:section name="Content">
-	<div class="span12">
-		<f:if condition="{book.image}">
-			<f:then><m:image asset="{book.image}" alt="" /></f:then>
-			<f:else><img src="http://placehold.it/800x800" width="800" height="800" alt="" /></f:else>
-		</f:if>
-		<f:if condition="{imageVariant}">
-			<m:image asset="{imageVariant}" alt="" />
-		</f:if>
-	</div>
+    <div class="span12">
+        <f:if condition="{book.image}">
+            <f:then>
+                <m:image image="{book.image}" alt=""/>
+            </f:then>
+            <f:else><img src="http://placehold.it/800x800" width="800" height="800" alt=""/></f:else>
+        </f:if>
+        <f:if condition="{imageVariant}">
+            <m:image image="{imageVariant}" alt=""/>
+        </f:if>
+    </div>
 </f:section>

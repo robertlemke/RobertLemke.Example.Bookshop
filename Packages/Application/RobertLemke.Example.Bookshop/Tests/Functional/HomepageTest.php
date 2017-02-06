@@ -12,53 +12,52 @@ namespace RobertLemke\Example\Bookshop\Tests\Functional;
  *                                                                        */
 
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
-use Neos\Flow\Http\Client\Browser;
-use Neos\Flow\Mvc\Routing\Route;
-use Neos\Flow\Http\Request;
-use Neos\Flow\Http\Response;
-use Neos\Flow\Http\Uri;
 
 /**
  * Functional tests for the ActionController
  */
-class HomepageTest extends \Neos\Flow\Tests\FunctionalTestCase {
+class HomepageTest extends \Neos\Flow\Tests\FunctionalTestCase
+{
 
-	/**
-	 * Contains a virtual, preinitialized browser
-	 *
-	 * @var \Neos\Flow\Http\Client\Browser
-	 * @api
-	 */
-	protected $browser;
+    /**
+     * Contains a virtual, preinitialized browser
+     *
+     * @var \Neos\Flow\Http\Client\Browser
+     * @api
+     */
+    protected $browser;
 
-	/**
-	 * @var boolean
-	 */
-	static protected $testablePersistenceEnabled = TRUE;
+    /**
+     * @var boolean
+     */
+    static protected $testablePersistenceEnabled = TRUE;
 
-	/**
-	 * Additional setup: Routes
-	 */
-	public function setUp() {
-		parent::setUp();
-	}
+    /**
+     * Additional setup: Routes
+     */
+    public function setUp()
+    {
+        parent::setUp();
+    }
 
-	/**
-	 * @test
-	 */
-	public function newBookAppearsOnHomepage() {
-		$response = $this->browser->request('http://localhost/robertlemke.example.bookshop/book/index');
-		$this->assertNotContains('Book #1', $response->getContent());
+    /**
+     * @test
+     */
+    public function newBookAppearsOnHomepage()
+    {
+        $response = $this->browser->request('http://localhost/robertlemke.example.bookshop/book/index');
+        $this->assertNotContains('Book #1', $response->getContent());
 
-		$book = new Book();
-		$book->setTitle('Book #1');
-		$book->setPrice(10);
+        $book = new Book();
+        $book->setTitle('Book #1');
+        $book->setPrice(10);
 
-		$bookRepository = $this->objectManager->get('RobertLemke\Example\Bookshop\Domain\Repository\BookRepository');
-		$bookRepository->add($book);
+        $bookRepository = $this->objectManager->get('RobertLemke\Example\Bookshop\Domain\Repository\BookRepository');
+        $bookRepository->add($book);
 
-		$response = $this->browser->request('http://localhost/robertlemke.example.bookshop/book/index');
-		$this->assertContains('Book #1', $response->getContent());
-	}
+        $response = $this->browser->request('http://localhost/robertlemke.example.bookshop/book/index');
+        $this->assertContains('Book #1', $response->getContent());
+    }
 }
+
 ?>

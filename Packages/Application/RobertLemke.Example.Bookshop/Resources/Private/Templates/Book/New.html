@@ -1,73 +1,74 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 <f:section name="Title">New book</f:section>
 
 <f:section name="Content">
-	<p>Just fill out the following form to create a new book:</p>
+    <p>Just fill out the following form to create a new book:</p>
 
-	<f:form.validationResults>
-		<f:if condition="{validationResults.flattenedErrors}">
-			<ul class="errors">
-				<f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
-					<li>{propertyPath}
-						<ul>
-							<f:for each="{errors}" as="error">
-								<li>{error.code}: {error}</li>
-							</f:for>
-						</ul>
-					</li>
-				</f:for>
-			</ul>
-		</f:if>
-	</f:form.validationResults>
+    <f:form.validationResults>
+        <f:if condition="{validationResults.flattenedErrors}">
+            <ul class="errors">
+                <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+                    <li>{propertyPath}
+                        <ul>
+                            <f:for each="{errors}" as="error">
+                                <li>{error.code}: {error}</li>
+                            </f:for>
+                        </ul>
+                    </li>
+                </f:for>
+            </ul>
+        </f:if>
+    </f:form.validationResults>
 
 
-	<f:form action="create" name="newBook" enctype="multipart/form-data">
-		<fieldset>
-			<div class="control-group">
-				<label class="control-label" for="title">Title</label>
-				<div class="controls">
-					<f:form.textfield property="title" id="title" class="input-xlarge" />
-				</div>
-			</div>
-		<f:if condition="{categories}">
-			<div class="control-group">
-				<label class="control-label" for="category">Category</label>
-				<div class="controls">
-					<f:form.select property="category" options="{categories}" optionLabelField="name" id="category" /><br />
-				</div>
-			</div>
-		</f:if>
-			<div class="control-group">
-				<label class="control-label" for="isbn">ISBN</label>
-				<div class="controls">
-					<f:form.textfield property="isbn" id="isbn" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="price">Price</label>
-				<div class="controls">
-					<div class="input-prepend input-append">
-						<span class="add-on">€</span>
-						<f:form.textfield property="price" id="price" class="input-small" />
-						<span class="add-on">.00</span>
-					</div>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="image">Image</label>
-				<div class="controls">
-					<f:form.upload property="image.resource" id="image" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="description">Description</label>
-				<div class="controls">
-					<f:form.textarea property="description" id="description" class="input-xlarge" cols="" rows="3" />
-				</div>
-			</div>
-			<button type="submit" class="btn btn-primary">Create</button>
-			<f:link.action action="index" class="btn">Cancel</f:link.action>
-		</fieldset>
-	</f:form>
+    <f:form action="create" name="newBook" enctype="multipart/form-data">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="title">Title</label>
+                <div class="controls">
+                    <f:form.textfield property="title" id="title" class="input-xlarge"/>
+                </div>
+            </div>
+            <f:if condition="{categories}">
+                <div class="control-group">
+                    <label class="control-label" for="category">Category</label>
+                    <div class="controls">
+                        <f:form.select property="category" options="{categories}" optionLabelField="name" id="category"/>
+                        <br/>
+                    </div>
+                </div>
+            </f:if>
+            <div class="control-group">
+                <label class="control-label" for="isbn">ISBN</label>
+                <div class="controls">
+                    <f:form.textfield property="isbn" id="isbn"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="price">Price</label>
+                <div class="controls">
+                    <div class="input-prepend input-append">
+                        <span class="add-on">€</span>
+                        <f:form.textfield property="price" id="price" class="input-small"/>
+                        <span class="add-on">.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="image">Image</label>
+                <div class="controls">
+                    <f:form.upload property="image.resource" id="image"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="description">Description</label>
+                <div class="controls">
+                    <f:form.textarea property="description" id="description" class="input-xlarge" cols="" rows="3"/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <f:link.action action="index" class="btn">Cancel</f:link.action>
+        </fieldset>
+    </f:form>
 </f:section>

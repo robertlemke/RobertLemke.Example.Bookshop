@@ -24,7 +24,7 @@ class BookController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Neos\Flow\Cache\Frontend\StringFrontend
+	 * @var \Neos\Cache\Frontend\StringFrontend
 	 */
 	protected $htmlCache;
 

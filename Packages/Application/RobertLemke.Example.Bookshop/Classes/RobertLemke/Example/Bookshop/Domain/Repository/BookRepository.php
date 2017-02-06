@@ -17,7 +17,7 @@ class BookRepository extends \Neos\Flow\Persistence\Repository {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Neos\Flow\Cache\Frontend\StringFrontend
+	 * @var \Neos\Cache\Frontend\StringFrontend
 	 */
 	protected $htmlCache;
 

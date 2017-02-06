@@ -1,13 +1,13 @@
-resources:
-  methods:
-    BookManagementMethods: 'method(.*Controller->(new|edit|create|delete|update)Action())'
-    BookManagementDelete: 'method(.*BookController->deleteAction())'
 
+privilegeTargets:
+  TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    BookManagementMethods:
+      matcher: 'method(.*Controller->(new|edit|create|delete|update)Action())'
+    BookManagementDelete:
+      matcher: 'method(.*BookController->deleteAction())'
 roles:
-  Administrator: []
-
-
-acls:
-  Administrator:
-    methods:
-      BookManagementMethods: GRANT
+  'RobertLemke.Example.Bookshop:Administrator':
+    privileges:
+      -
+        privilegeTarget: BookManagementMethods
+        permission: GRANT

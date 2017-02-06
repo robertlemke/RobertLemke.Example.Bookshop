@@ -1,0 +1,16 @@
+{
+    "name": "robertlemke/example-bookshop",
+    "type": "typo3-flow-package",
+    "description": "An example application for the Getting Into Flow tutorial.",
+    "version": "1.1.0",
+    "require": {
+        "typo3/flow": "*",
+        "typo3/media": "*",
+        "typo3/twitter-bootstrap": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "RobertLemke\\Example\\Bookshop": "Classes"
+        }
+    }
+}

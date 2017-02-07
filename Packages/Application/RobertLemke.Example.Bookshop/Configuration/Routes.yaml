@@ -12,6 +12,33 @@
       uriPattern: 'the-very-cool-category-{name}'
 
 -
+  name: 'Categories'
+  uriPattern: 'books/categories'
+  defaults:
+    '@package':    'RobertLemke.Example.Bookshop'
+    '@controller': 'Category'
+    '@action':     'index'
+    '@format':     'html'
+
+-
+  name: 'Basket'
+  uriPattern: 'basket'
+  defaults:
+    '@package':    'RobertLemke.Example.Bookshop'
+    '@controller': 'Basket'
+    '@action':     'index'
+    '@format':     'html'
+
+-
+  name: 'Basket'
+  uriPattern: 'login'
+  defaults:
+    '@package':    'RobertLemke.Example.Bookshop'
+    '@controller': 'Login'
+    '@action':     'login'
+    '@format':     'html'
+
+-
   name: 'Book actions'
   uriPattern: 'books(/{@action})'
   defaults:
@@ -30,4 +57,11 @@
     '@action':     'index'
     '@format':     'html'
 
-
+-
+  name: 'Default route'
+  uriPattern: ''
+  defaults:
+    '@package':    'RobertLemke.Example.Bookshop'
+    '@controller': 'Book'
+    '@action':     'index'
+    '@format':     'html'

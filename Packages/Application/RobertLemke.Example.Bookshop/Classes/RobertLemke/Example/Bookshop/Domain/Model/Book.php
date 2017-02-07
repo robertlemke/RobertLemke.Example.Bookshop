@@ -5,6 +5,7 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
  * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
  */
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Neos\Flow\Annotations as Flow;
 use Neos\Media\Domain\Model\Image;
@@ -75,7 +76,7 @@ class Book
      */
     public function __construct()
     {
-        $this->reviews = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reviews = new ArrayCollection();
     }
 
     /**
@@ -213,5 +214,3 @@ class Book
     }
 
 }
-
-?>

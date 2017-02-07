@@ -18,3 +18,4 @@ Neos:
     mvc:
       routes:
         'RobertLemke.Example.Bookshop': true
+        'Neos.Flow': true

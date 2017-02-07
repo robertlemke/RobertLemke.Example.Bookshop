@@ -6,8 +6,10 @@ namespace RobertLemke\Example\Bookshop\Domain\Model;
  */
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Neos\Flow\Annotations as Flow;
+use Neos\Media\Domain\Model\AssetCollection;
 use Neos\Media\Domain\Model\Image;
 
 /**
@@ -54,7 +56,7 @@ class Book
 
     /**
      * Reviews of this book
-     * @var \Doctrine\Common\Collections\Collection<\RobertLemke\Example\Bookshop\Domain\Model\Review>
+     * @var Collection<\RobertLemke\Example\Bookshop\Domain\Model\Review>
      * @ORM\OneToMany(mappedBy="book")
      */
     protected $reviews;
@@ -65,6 +67,21 @@ class Book
      * @ORM\Column(nullable=true)
      */
     protected $image;
+
+    /**
+     * Images / photos of pages inside the book
+     * @ORM\OneToOne(orphanRemoval=true, cascade={"all"})
+     * @ORM\Column(nullable=true)
+     * @var AssetCollection
+     */
+    protected $sampleImages;
+
+    /**
+     * @var Collection<\Neos\Media\Domain\Model\Asset>
+     * @ORM\ManyToMany(inversedBy="assetCollections", cascade={"persist"})
+     * @Flow\Lazy
+     */
+    protected $assets;
 
     /**
      * @var string
@@ -177,6 +194,22 @@ class Book
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @return AssetCollection
+     */
+    public function getSampleImages()
+    {
+        return $this->sampleImages;
+    }
+
+    /**
+     * @param AssetCollection $sampleImages
+     */
+    public function setSampleImages($sampleImages)
+    {
+        $this->sampleImages = $sampleImages;
     }
 
     /**

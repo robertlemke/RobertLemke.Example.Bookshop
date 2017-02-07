@@ -47,6 +47,7 @@
                                             <button class="pull-right"><i class="icon-shopping-cart"></i> Add to Basket</button>
                                         </f:form>
                                     </p>
+                                    <f:link.action action="addSampleImages" arguments="{book: book}"><i class="icon-plus"></i></f:link.action>
                                     <f:link.action action="edit" arguments="{book: book}"><i class="icon-edit"></i></f:link.action>
                                     <f:form action="delete" controller="Book" name="book" object="{book}">
                                         <button class="btn btn-link" alt="Delete"><i class="icon-trash">D</i></button>

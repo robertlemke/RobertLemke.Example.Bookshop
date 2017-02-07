@@ -9,6 +9,12 @@ use Neos\Cache\Frontend\StringFrontend;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Flow\Mvc\View\ViewInterface;
+use Neos\Flow\Property\TypeConverter\PersistentObjectConverter;
+use Neos\Flow\ResourceManagement\PersistentResource;
+use Neos\Flow\ResourceManagement\ResourceTypeConverter;
+use Neos\Media\Domain\Model\AssetCollection;
+use Neos\Media\Domain\Model\Image;
+use Neos\Media\Domain\Repository\AssetCollectionRepository;
 use Neos\Media\Domain\Repository\AssetRepository;
 use RobertLemke\Example\Bookshop\Domain\Model\Basket;
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
@@ -59,6 +65,24 @@ class BookController extends ActionController
      * @var IsbnLookupService
      */
     protected $isbnLookupService;
+
+    /**
+     * @Flow\Inject
+     * @var AssetCollectionRepository
+     */
+    protected $assetCollectionRepository;
+
+    /**
+     * @Flow\Inject(lazy=false)
+     * @var PersistentObjectConverter
+     */
+    protected $persistentObjectConverter;
+
+    /**
+     * @Flow\Inject(lazy=false)
+     * @var ResourceTypeConverter
+     */
+    protected $resourceTypeConverter;
 
     /**
      * A hacky way to implement a menu
@@ -186,5 +210,76 @@ class BookController extends ActionController
         $this->bookRepository->remove($book);
         $this->addFlashMessage('Deleted a book.');
         $this->redirect('index');
+    }
+
+    /**
+     * @param Book $book
+     */
+    public function addSampleImagesAction(Book $book)
+    {
+        $this->view->assign('book', $book);
+    }
+
+    /**
+     * @param Book $book
+     * @param Image $image
+     */
+    public function addSampleImageAction(Book $book, Image $image)
+    {
+        $sampleImagesCollection = $book->getSampleImages();
+        if ($sampleImagesCollection === null) {
+            $sampleImagesCollection = new AssetCollection('Sample images');
+            $this->assetCollectionRepository->add($sampleImagesCollection);
+            $book->setSampleImages($sampleImagesCollection);
+            $this->bookRepository->update($book);
+        } else {
+            $this->assetCollectionRepository->update($sampleImagesCollection);
+        }
+
+        $sampleImagesCollection->addAsset($image);
+
+        $this->redirect('addSampleImages', 'Book', null, ['book' => $book]);
+    }
+
+    /**
+     * @param Book $book
+     * @param array $imageResources
+     */
+    public function addMultipleSampleImagesAction(Book $book, array $imageResources)
+    {
+        $sampleImagesCollection = $book->getSampleImages();
+        if ($sampleImagesCollection === null) {
+            $sampleImagesCollection = new AssetCollection('Sample images');
+            $this->assetCollectionRepository->add($sampleImagesCollection);
+            $book->setSampleImages($sampleImagesCollection);
+            $this->bookRepository->update($book);
+        } else {
+            $this->assetCollectionRepository->update($sampleImagesCollection);
+        }
+
+        foreach ($imageResources as $imageResource) {
+            $resource = $this->resourceTypeConverter->convertFrom($imageResource['resource'], PersistentResource::class);
+            $image = new Image($resource);
+            $sampleImagesCollection->addAsset($image);
+            $this->assetRepository->add($image);
+        }
+
+        $this->redirect('addSampleImages', 'Book', null, ['book' => $book]);
+    }
+
+    /**
+     * @param Book $book
+     * @param Image $image
+     */
+    public function removeSampleImageAction(Book $book, Image $image)
+    {
+        $sampleImagesCollection = $book->getSampleImages();
+        if ($sampleImagesCollection instanceof AssetCollection && $sampleImagesCollection->getAssets()->contains($image)) {
+            $sampleImagesCollection->removeAsset($image);
+            $this->assetCollectionRepository->update($sampleImagesCollection);
+            $this->assetRepository->remove($image);
+        }
+
+        $this->redirect('addSampleImages', 'Book', null, ['book' => $book]);
     }
 }

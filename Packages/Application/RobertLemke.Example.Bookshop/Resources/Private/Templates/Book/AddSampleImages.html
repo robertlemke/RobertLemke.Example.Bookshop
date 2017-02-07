@@ -1,0 +1,63 @@
+{namespace m=Neos\Media\ViewHelpers}
+<f:layout name="Default"/>
+
+<f:section name="Title">{book.title}</f:section>
+
+<f:section name="Content">
+    <h3>Add sample images</h3>
+    <hr />
+    <h4>Add one image with regular upload form:</h4>
+    <f:form action="addSampleImage" enctype="multipart/form-data">
+        <f:form.hidden name="book" value="{book}" />
+        <fieldset>
+            <div class="control-group">
+                <div class="controls">
+                    <f:form.upload name="image[resource]" id="image"/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+            <f:link.action action="index" class="btn">Cancel</f:link.action>
+        </fieldset>
+    </f:form>
+
+    <hr />
+    <h4>Add multiple images with regular form:</h4>
+    <f:form action="addMultipleSampleImages" enctype="multipart/form-data">
+        <f:form.hidden name="book" value="{book}" />
+        <fieldset>
+            <div class="control-group">
+                <div class="controls">
+                    <f:form.upload name="imageResources[0][resource]" id="image0"/>
+                </div>
+                <div class="controls">
+                    <f:form.upload name="imageResources[1][resource]" id="image1"/>
+                </div>
+                <div class="controls">
+                    <f:form.upload name="imageResources[2][resource]" id="image2"/>
+                </div>
+                <div class="controls">
+                    <f:form.upload name="imageResources[3][resource]" id="image3"/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+            <f:link.action action="index" class="btn">Cancel</f:link.action>
+        </fieldset>
+    </f:form>
+
+    <hr />
+    <h3>Existing sample images</h3>
+    <div class="span12">
+        <ul class="thumbnails">
+            <f:for each="{book.sampleImages.assets}" as="asset">
+                <li class="span3">
+                    <f:form action="removeSampleImage" enctype="multipart/form-data">
+                        <f:form.hidden name="book" value="{book}" />
+                        <f:form.hidden name="image" value="{asset}" />
+                        <m:image image="{asset}" maximumWidth="200" alt=""/>
+                        <button type="submit" class="btn btn-primary">Remove</button>
+                    </f:form>
+                </li>
+            </f:for>
+        </ul>
+    </div>
+</f:section>

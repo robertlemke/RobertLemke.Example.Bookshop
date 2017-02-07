@@ -6,7 +6,6 @@ use Neos\Flow\Package\Package as BasePackage;
 
 /**
  * Package base class of the RobertLemke.Example.Bookshop package.
- *
  * @Flow\Scope("singleton")
  */
 class Package extends BasePackage

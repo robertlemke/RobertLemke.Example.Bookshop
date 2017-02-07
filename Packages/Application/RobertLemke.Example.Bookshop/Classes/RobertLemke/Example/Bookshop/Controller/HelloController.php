@@ -1,16 +1,14 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Controller;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Neos\Flow\Annotations as Flow;
 
 /**
  * Hello controller for the RobertLemke.Example.Bookshop package
- *
  * @Flow\Scope("singleton")
  */
 class HelloController extends \Neos\Flow\Mvc\Controller\ActionController

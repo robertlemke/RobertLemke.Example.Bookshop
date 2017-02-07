@@ -1,16 +1,13 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Tests\Unit\Controller;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 /**
  * Testcase for BookController (demo case for mock objects)
- *
  * DON'T TRY THIS AT HOME
- *
  * Usually you don't want to create unit tests for controllers (write functional
  * tests instead)
  */

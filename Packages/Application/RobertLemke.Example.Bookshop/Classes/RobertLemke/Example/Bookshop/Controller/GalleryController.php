@@ -1,10 +1,9 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Controller;
 
-/*                                                                        *
+/*
  * This script belongs to the Flow package "RobertLemke.Example.Bookshop".*
- *                                                                        *
- *                                                                        */
+ */
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
@@ -13,7 +12,6 @@ use RobertLemke\Example\Bookshop\Domain\Model\Book;
 
 /**
  * Book controller for the RobertLemke.Example.Bookshop package
- *
  * @Flow\Scope("singleton")
  */
 class GalleryController extends ActionController

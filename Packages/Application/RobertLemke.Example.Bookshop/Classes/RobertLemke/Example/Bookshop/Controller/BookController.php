@@ -1,10 +1,9 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Controller;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Neos\Cache\Frontend\StringFrontend;
 use Neos\Flow\Annotations as Flow;
@@ -20,7 +19,6 @@ use RobertLemke\Example\Bookshop\Service\IsbnLookupService;
 
 /**
  * Book controller for the RobertLemke.Example.Bookshop package
- *
  * @Flow\Scope("singleton")
  */
 class BookController extends ActionController
@@ -79,7 +77,7 @@ class BookController extends ActionController
      * Shows a list of books
      *
      * @param Category $category
-     * @return void
+     * @return string
      */
     public function indexAction(Category $category = NULL)
     {

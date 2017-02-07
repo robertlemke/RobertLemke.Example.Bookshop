@@ -1,16 +1,14 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Domain\Repository;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Neos\Flow\Annotations as Flow;
 
 /**
  * A repository for Books
- *
  * @Flow\Scope("singleton")
  */
 class BookRepository extends \Neos\Flow\Persistence\Repository

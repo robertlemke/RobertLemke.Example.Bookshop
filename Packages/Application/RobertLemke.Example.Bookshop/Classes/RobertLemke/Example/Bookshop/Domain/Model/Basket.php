@@ -1,10 +1,9 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Domain\Model;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Doctrine\ORM\Mapping as ORM;
 use Neos\Flow\Annotations as Flow;
@@ -12,7 +11,6 @@ use RobertLemke\Example\Bookshop\Exception\InvalidBasketOperationException;
 
 /**
  * A Basket
- *
  * @Flow\Scope("session")
  */
 class Basket

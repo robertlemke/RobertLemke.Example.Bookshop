@@ -1,9 +1,9 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Service;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Doctrine\ORM\Mapping as ORM;
 use Neos\Flow\Annotations as Flow;
@@ -11,7 +11,6 @@ use Neos\Flow\Http\Client\CurlEngine;
 
 /**
  * An ISBN Lookup Service
- *
  * @Flow\Scope("singleton")
  */
 class IsbnLookupService

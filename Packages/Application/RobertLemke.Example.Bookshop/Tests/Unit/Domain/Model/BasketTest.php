@@ -1,10 +1,9 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Tests\Unit\Domain\Model;
 
-/*                                                                        *
+/*
  * This script belongs to the Flow package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+ */
 
 use Neos\Flow\Tests\UnitTestCase;
 use RobertLemke\Example\Bookshop\Domain\Model\Basket;

@@ -1,10 +1,9 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Controller;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Security\Authentication\Controller\AbstractAuthenticationController;
@@ -12,7 +11,6 @@ use Neos\Flow\Security\Authentication\Controller\AbstractAuthenticationControlle
 
 /**
  * Login controller for the RobertLemke.Example.Bookshop package
- *
  * @Flow\Scope("singleton")
  */
 class LoginController extends AbstractAuthenticationController

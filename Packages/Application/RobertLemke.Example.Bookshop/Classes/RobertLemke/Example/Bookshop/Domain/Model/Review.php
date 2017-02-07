@@ -1,17 +1,15 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Domain\Model;
 
-/*                                                                        *
- * This script belongs to the FLOW3 package "RobertLemke.Example.Bookshop".              *
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Doctrine\ORM\Mapping as ORM;
 use Neos\Flow\Annotations as Flow;
 
 /**
  * A Review
- *
  * @Flow\Entity
  */
 class Review

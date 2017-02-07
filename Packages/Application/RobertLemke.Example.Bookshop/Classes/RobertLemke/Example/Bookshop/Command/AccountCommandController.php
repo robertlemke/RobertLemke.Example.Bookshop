@@ -1,10 +1,9 @@
 <?php
 namespace RobertLemke\Example\Bookshop\Command;
 
-/*                                                                        *
- * This script belongs to the TYPO3 Flow package "RobertLemke.Example.Bookshop".*
- *                                                                        *
- *                                                                        */
+/*
+ * This script belongs to the TYPO3 Flow package "RobertLemke.Example.Bookshop".
+ */
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Cli\CommandController;
@@ -16,7 +15,6 @@ use RobertLemke\Example\Bookshop\Domain\Model\User;
 
 /**
  * Account command controller for the RobertLemke.Example.Bookshop package
- *
  * @Flow\Scope("singleton")
  */
 class AccountCommandController extends CommandController

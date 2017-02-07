@@ -8,3 +8,5 @@ This repository contains a Flow distribution, which means you simply clone the r
 As for the database, simply add database credentials into a `Settings.yaml` in `Configuration/Development` and run `./flow doctrine:migrate`.
 
 This package has been revised for Flow 4.0.
+
+![Bookshop screenshot](https://raw.githubusercontent.com/robertlemke/RobertLemke.Example.Bookshop/master/BookshopScreenshot.png "Bookshop screenshot")

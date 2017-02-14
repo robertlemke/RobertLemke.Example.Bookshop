@@ -14,8 +14,10 @@ use Neos\Flow\ResourceManagement\PersistentResource;
 use Neos\Flow\ResourceManagement\ResourceTypeConverter;
 use Neos\Media\Domain\Model\AssetCollection;
 use Neos\Media\Domain\Model\Image;
+use Neos\Media\Domain\Model\Tag;
 use Neos\Media\Domain\Repository\AssetCollectionRepository;
 use Neos\Media\Domain\Repository\AssetRepository;
+use Neos\Media\Domain\Repository\TagRepository;
 use RobertLemke\Example\Bookshop\Domain\Model\Basket;
 use RobertLemke\Example\Bookshop\Domain\Model\Book;
 use RobertLemke\Example\Bookshop\Domain\Model\Category;
@@ -83,6 +85,12 @@ class BookController extends ActionController
      * @var ResourceTypeConverter
      */
     protected $resourceTypeConverter;
+
+    /**
+     * @Flow\Inject
+     * @var TagRepository
+     */
+    protected $tagRepository;
 
     /**
      * A hacky way to implement a menu
@@ -236,6 +244,7 @@ class BookController extends ActionController
             $this->assetCollectionRepository->update($sampleImagesCollection);
         }
 
+        $this->addTitleAndTagToImage($image, $book);
         $sampleImagesCollection->addAsset($image);
 
         $this->redirect('addSampleImages', 'Book', null, ['book' => $book]);
@@ -260,6 +269,7 @@ class BookController extends ActionController
         foreach ($imageResources as $imageResource) {
             $resource = $this->resourceTypeConverter->convertFrom($imageResource['resource'], PersistentResource::class);
             $image = new Image($resource);
+            $this->addTitleAndTagToImage($image, $book);
             $sampleImagesCollection->addAsset($image);
             $this->assetRepository->add($image);
         }
@@ -281,5 +291,21 @@ class BookController extends ActionController
         }
 
         $this->redirect('addSampleImages', 'Book', null, ['book' => $book]);
+    }
+
+    /**
+     * @param Image $image
+     * @param Book $book
+     */
+    protected function addTitleAndTagToImage(Image $image, Book $book)
+    {
+        $tag = $this->tagRepository->findOneByLabel('sample');
+        if ($tag === null) {
+            $tag = new Tag('sample');
+            $this->tagRepository->add($tag);
+        }
+
+        $image->setTitle('Sample for ' . $book->getTitle());
+        $image->addTag($tag);
     }
 }

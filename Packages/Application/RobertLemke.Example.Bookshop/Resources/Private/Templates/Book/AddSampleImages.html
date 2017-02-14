@@ -53,7 +53,7 @@
                     <f:form action="removeSampleImage" enctype="multipart/form-data">
                         <f:form.hidden name="book" value="{book}" />
                         <f:form.hidden name="image" value="{asset}" />
-                        <m:image image="{asset}" maximumWidth="200" alt=""/>
+                        <m:image image="{asset}" maximumWidth="200" alt="{asset.title}" title="{asset.title}"/>
                         <button type="submit" class="btn btn-primary">Remove</button>
                     </f:form>
                 </li>

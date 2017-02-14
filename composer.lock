@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bd7b2b0c09987bd92c1bd2239c957424",
-    "content-hash": "ac15709a8debf194da08b6c1c488df94",
+    "hash": "784886a7035b11da3d76a8eae5bc2da1",
+    "content-hash": "189667346085e57c1954c99653f06167",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1075,7 +1075,7 @@
         },
         {
             "name": "neos/media",
-            "version": "3.0.0",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/media.git",
@@ -3781,9 +3781,17 @@
             "time": "2016-11-23 20:04:58"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "3.0.1",
+            "alias_normalized": "3.0.1.0",
+            "version": "3.0.9999999.9999999-dev",
+            "package": "neos/media"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "neos/media": 20,
         "neos/behat": 20
     },
     "prefer-stable": false,
